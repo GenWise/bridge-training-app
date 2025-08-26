@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "Puzzle App"
+		},
+		{
+			"path": "Puzzle Database"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Puzzle App"
+	}
+}
