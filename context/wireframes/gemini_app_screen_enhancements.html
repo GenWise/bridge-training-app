@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridge Training App - Enhanced Wireframes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #007A7A; /* A modern teal */
+            --primary-light: #e0f2f1;
+            --success-color: #2e7d32;
+            --success-light: #dcedc8;
+            --warning-color: #ff8f00;
+            --warning-light: #fff3e0;
+            --danger-color: #c62828;
+            --text-primary: #212121;
+            --text-secondary: #5f6368;
+            --bg-light: #f7f9fa;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f0f2f5;
+            color: var(--text-primary);
+        }
+
+        .wireframe-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .wireframe {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid var(--border-color);
+        }
+
+        .screen-title {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            font-size: 18px;
+        }
+
+        .phone-frame {
+            width: 300px;
+            height: 580px;
+            border: 4px solid #333;
+            border-radius: 30px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 10px;
+            position: relative;
+            box-shadow: 0 0 0 8px #111;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .phone-content {
+            padding: 15px;
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        /* --- Refined Components --- */
+
+        .tab-bar {
+            display: flex;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 15px;
+        }
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+        }
+        .tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        
+        .button {
+            width: 100%;
+            padding: 12px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+        .button.export {
+            background: var(--success-color);
+        }
+        
+        .custom-select-wrapper {
+            position: relative;
+        }
+        .custom-select-wrapper::after {
+            content: '▼';
+            font-size: 10px;
+            color: var(--text-secondary);
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .problem-display {
+            border: 2px dashed var(--border-color);
+            height: 140px;
+            margin: 15px 0;
+            background: var(--bg-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 8px;
+            color: var(--text-secondary);
+        }
+        
+        .metadata {
+            font-size: 11px;
+            color: var(--text-secondary);
+            background: var(--bg-light);
+            padding: 8px;
+            border-radius: 6px;
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+        
+        textarea.reasoning-box {
+            width: 100%;
+            height: 70px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px;
+            font-size: 14px;
+            margin-top: 5px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .stat-card {
+            padding: 10px;
+            background: var(--bg-light);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 12px;
+        }
+        .stat-card .value {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 4px;
+            color: var(--primary-color);
+        }
+
+        /* --- NEW: Accordion Styles --- */
+        .accordion-item {
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .accordion-header {
+            padding: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+        .accordion-header::after { content: '+'; font-size: 18px; color: var(--text-secondary); }
+        .accordion-item.open .accordion-header::after { content: '−'; }
+        .accordion-content {
+            padding: 0 12px 12px 12px;
+            display: none;
+        }
+        .accordion-item.open .accordion-content { display: block; }
+
+        /* --- NEW: Segmented Control --- */
+        .segmented-control {
+            display: flex;
+            width: 100%;
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 4px;
+            margin: 20px 0;
+        }
+        .segmented-control button {
+            flex: 1;
+            padding: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .segmented-control button.active {
+            background: #ffffff;
+            color: var(--primary-color);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        /* --- NEW: Bottom Nav Bar --- */
+        .bottom-nav {
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 0;
+            background: #ffffff;
+            border-top: 1px solid var(--border-color);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-radius: 0 0 26px 26px;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 11px;
+            color: var(--text-secondary);
+            cursor: pointer;
+        }
+        .nav-item.active { color: var(--primary-color); }
+        .nav-item svg {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 2px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center; margin-bottom: 30px;">Bridge Training App - Enhanced UI Concepts</h1>
+    
+    <div class="wireframe-container">
+        <div class="wireframe">
+            <div class="screen-title">Session Builder (Mobile)</div>
+            <div class="phone-frame">
+                <div class="phone-content">
+                    <div class="tab-bar">
+                        <div class="tab active">Declarer Play</div>
+                        <div class="tab">Defense</div>
+                    </div>
+                    
+                    <div class="accordion">
+                        <div class="accordion-item open">
+                            <div class="accordion-header">Core Settings</div>
+                            <div class="accordion-content">
+                                <label style="font-size:12px; color: var(--text-secondary);">Number of Problems: 15</label>
+                                <input type="range" min="5" max="50" value="15" style="width: 100%; margin-top: 5px;">
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header">Difficulty</div>
+                            <div class="accordion-content">
+                                <div class="custom-select-wrapper">
+                                    <select><option>♣ ♦ ♥ ♠ (All)</option></select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <div class="accordion-header">Techniques</div>
+                            <div class="accordion-content">
+                                <div class="custom-select-wrapper">
+                                    <select><option>All Techniques</option></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">Sources</div>
+                        <div class="accordion-content">
+                            <div class="custom-select-wrapper">
+                                <select><option>All Sources</option></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                    <div class="segmented-control">
+                        <button class="active">Play Here</button>
+                        <button>Export Only</button>
+                    </div>
+                    
+                    <div class="button">🚀 Generate Session</div>
+                    <div style="font-size: 11px; color: var(--text-secondary); text-align: center; margin-top: 8px;">
+                        Creates an interactive practice session.
+                    </div>
+                </div>
+                <div class="bottom-nav">
+                    <div class="nav-item active">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>
+                        Practice
+                    </div>
+                    <div class="nav-item">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v16H4V4m2 14h12V6H6v12M8 8h2v8H8V8m4 0h2v4h-2V8m0 6h2v2h-2v-2Z"></path></svg>
+                        Stats
+                    </div>
+                    <div class="nav-item">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6a7 7 0 0 1 7-7 7 7 0 0 1 7 7 7 7 0 0 1-7 7v2a9 9 0 0 0 9-9 9 9 0 0 0-9-9m-1 5v5l4.25 2.52.77-1.28-3.52-2.09V8Z"></path></svg>
+                        History
+                    </div>
+                    <div class="nav-item">
+                        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
+                        Profile
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wireframe">
+            <div class="screen-title">Quiz Experience</div>
+            <div class="phone-frame">
+                <div class="phone-content">
+                     <div style="text-align: center; font-size: 14px; color: var(--text-secondary); margin-bottom: 10px;">
+                        Problem 3 of 15
+                    </div>
+                    
+                    <div class="metadata">
+                        <b>Contract:</b> 3NT by South<br>
+                        <b>Lead:</b> ♠5 | <b>Difficulty:</b> ♥ (Advanced)
+                    </div>
+                    
+                    <div class="problem-display">
+                        [Bridge Hand Diagram]
+                    </div>
+                    
+                    <label style="font-size: 14px; font-weight: 500; margin-bottom: 5px;">Your Reasoning:</label>
+                    <textarea class="reasoning-box" placeholder="Describe your line of play..."></textarea>
+                    
+                    <div class="button" style="margin-top: 20px;">Submit for Score</div>
+                     <div style="display: flex; gap: 10px; margin-top: 10px;">
+                        <button style="flex:1; padding: 10px; background: none; border: 1px solid var(--border-color); border-radius: 8px; font-size: 14px; color: var(--text-secondary);">Show Solution</button>
+                        <button style="flex:1; padding: 10px; background: none; border: 1px solid var(--border-color); border-radius: 8px; font-size: 14px; color: var(--text-secondary);">Skip</button>
+                    </div>
+                </div>
+                <div class="bottom-nav">
+                    <div class="nav-item active"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>Practice</div>
+                    <div class="nav-item"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v16H4V4m2 14h12V6H6v12M8 8h2v8H8V8m4 0h2v4h-2V8m0 6h2v2h-2v-2Z"></path></svg>Stats</div>
+                    <div class="nav-item"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6a7 7 0 0 1 7-7 7 7 0 0 1 7 7 7 7 0 0 1-7 7v2a9 9 0 0 0 9-9 9 9 0 0 0-9-9m-1 5v5l4.25 2.52.77-1.28-3.52-2.09V8Z"></path></svg>History</div>
+                    <div class="nav-item"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>Profile</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wireframe">
+            <div class="screen-title">Solution & Feedback</div>
+            <div class="phone-frame">
+                <div class="phone-content">
+                    <div style="background: var(--success-light); border: 1px solid var(--success-color); border-radius: 8px; padding: 12px; margin-bottom: 15px;">
+                        <div style="font-size: 16px; font-weight: 600; color: var(--success-color);">AI Score: 7/10 👍</div>
+                        <div style="font-size: 13px; color: #333; margin-top: 5px; line-height: 1.5;">Good analysis! Consider the safety play option when entries are limited.</div>
+                    </div>
+                    
+                    <div class="problem-display" style="height: 160px;">
+                        [Complete Bridge Deal]<br>All Four Hands + Solution
+                    </div>
+                    
+                    <div style="font-size: 13px; background: var(--bg-light); padding: 12px; border-radius: 8px; margin: 15px 0; line-height: 1.6;">
+                        <div style="font-weight: 600; margin-bottom: 5px;">Commentary:</div>
+                        The key is to ensure you make the contract safely. Lead low to the jack, and if it loses to the king, you still have entries to finesse again...
+                    </div>
+                    
+                    <div class="button" style="margin-top: 15px;">Next Problem →</div>
+                </div>
+                 <div class="bottom-nav">
+                    <div class="nav-item active"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>Practice</div>
+                    <div class="nav-item"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v16H4V4m2 14h12V6H6v12M8 8h2v8H8V8m4 0h2v4h-2V8m0 6h2v2h-2v-2Z"></path></svg>Stats</div>
+                    <div class="nav-item"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6a7 7 0 0 1 7-7 7 7 0 0 1 7 7 7 7 0 0 1-7 7v2a9 9 0 0 0 9-9 9 9 0 0 0-9-9m-1 5v5l4.25 2.52.77-1.28-3.52-2.09V8Z"></path></svg>History</div>
+                    <div class="nav-item"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>Profile</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="wireframe">
+            <div class="screen-title">Statistics</div>
+            <div class="phone-frame">
+                <div class="phone-content">
+                    <h2 style="font-size: 22px; font-weight: 700; text-align: center; margin-bottom: 20px;">Practice Statistics</h2>
+                    
+                    <div class="stats-grid" style="margin-bottom: 20px;">
+                        <div class="stat-card">
+                            <div>Sessions</div><div class="value">12</div>
+                        </div>
+                        <div class="stat-card">
+                            <div>Avg Score</div><div class="value">7.2</div>
+                        </div>
+                        <div class="stat-card">
+                            <div>Problems</div><div class="value">156</div>
+                        </div>
+                        <div class="stat-card">
+                            <div>Streak</div><div class="value">🔥 5</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 10px;">Technique Breakdown</h3>
+                        <div style="font-size: 13px; margin: 10px 0;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span>Safety Play</span><span>8.1/10</span></div>
+                            <div style="height: 6px; background: var(--border-color); border-radius: 3px;"><div style="width: 81%; height: 100%; background: var(--success-color); border-radius: 3px;"></div></div>
+                        </div>
+                         <div style="font-size: 13px; margin: 10px 0;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span>Finesse</span><span>6.8/10</span></div>
+                            <div style="height: 6px; background: var(--border-color); border-radius: 3px;"><div style="width: 68%; height: 100%; background: var(--warning-color); border-radius: 3px;"></div></div>
+                        </div>
+                         <div style="font-size: 13px; margin: 10px 0;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;"><span>Squeeze</span><span>5.2/10</span></div>
+                            <div style="height: 6px; background: var(--border-color); border-radius: 3px;"><div style="width: 52%; height: 100%; background: var(--danger-color); border-radius: 3px;"></div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-nav">
+                    <div class="nav-item"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"></path></svg>Practice</div>
+                    <div class="nav-item active"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M4 4h16v16H4V4m2 14h12V6H6v12M8 8h2v8H8V8m4 0h2v4h-2V8m0 6h2v2h-2v-2Z"></path></svg>Stats</div>
+                    <div class="nav-item"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6a7 7 0 0 1 7-7 7 7 0 0 1 7 7 7 7 0 0 1-7 7v2a9 9 0 0 0 9-9 9 9 0 0 0-9-9m-1 5v5l4.25 2.52.77-1.28-3.52-2.09V8Z"></path></svg>History</div>
+                    <div class="nav-item"><svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>Profile</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

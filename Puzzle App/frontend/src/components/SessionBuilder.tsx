@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { TabNavigation } from './TabNavigation';
-import { DifficultySelector } from './DifficultySelector';
-import { ProblemCountSlider } from './ProblemCountSlider';
-import { PracticeMode } from './PracticeMode';
-import { PuzzlePreview } from './PuzzlePreview';
-import { LoadingSpinner } from './LoadingSpinner';
-import { ErrorMessage } from './ErrorMessage';
 import { puzzleService } from '../services/PuzzleService';
 import type { Puzzle, DifficultySymbol, LoadingState } from '../types/Puzzle';
 import { DEFAULT_SESSION_CONFIG } from '../types/Session';
+import { DIFFICULTY_LEVELS } from '../types/Puzzle';
+import { useQuiz } from '../hooks/useQuiz';
 
 export const SessionBuilder: React.FC = () => {
+  const quiz = useQuiz();
   const [activeTab, setActiveTab] = useState<'declarer' | 'defense'>('declarer');
   const [problemCount, setProblemCount] = useState(DEFAULT_SESSION_CONFIG.problemCount);
   const [difficulty, setDifficulty] = useState<DifficultySymbol | 'all'>('all');
@@ -18,6 +14,7 @@ export const SessionBuilder: React.FC = () => {
   const [selectedPuzzles, setSelectedPuzzles] = useState<Puzzle[]>([]);
   const [loadingState, setLoadingState] = useState<LoadingState>({ isLoading: false, error: null });
   const [difficultyStats, setDifficultyStats] = useState<Record<DifficultySymbol, number>>({} as Record<DifficultySymbol, number>);
+  const [expandedSection, setExpandedSection] = useState<string>('core');
 
   // Load difficulty statistics on component mount
   useEffect(() => {
@@ -43,24 +40,21 @@ export const SessionBuilder: React.FC = () => {
       let puzzles: Puzzle[];
       
       if (difficulty === 'all') {
-        // If "all" selected, get random puzzles from all difficulties
         puzzles = await puzzleService.getRandomPuzzles({
           count: problemCount
         });
       } else {
-        // Get puzzles for specific difficulty
         puzzles = await puzzleService.getPuzzlesByDifficulty(difficulty, problemCount);
       }
 
       setSelectedPuzzles(puzzles);
       setLoadingState({ isLoading: false, error: null });
       
-      // TODO: Handle different modes
       if (mode === 'play') {
-        // Navigate to quiz mode (future implementation)
-        console.log('Starting quiz mode with', puzzles.length, 'puzzles');
+        // Start the quiz automatically
+        quiz.startQuiz(puzzles);
       } else {
-        // Export mode (future implementation)
+        // Export mode - could implement PDF/LIN generation here
         console.log('Exporting', puzzles.length, 'puzzles');
       }
     } catch (error) {
@@ -72,104 +66,404 @@ export const SessionBuilder: React.FC = () => {
   };
 
   const getActionButtonText = () => {
-    if (mode === 'play') {
-      return 'Generate Session';
-    } else {
-      return '📦 Export Problems';
-    }
-  };
-
-  const getActionButtonStyle = () => {
-    return mode === 'play' 
-      ? 'bg-blue-500 hover:bg-blue-600' 
-      : 'bg-green-500 hover:bg-green-600';
+    return mode === 'play' ? 'Generate Session' : 'Export Problems';
   };
 
   const getActionDescription = () => {
     return mode === 'play'
-      ? 'Creates interactive practice session with scoring'
-      : 'Saves both PDF and LIN files to your device';
+      ? 'Creates an interactive practice session.'
+      : 'Saves both PDF and LIN files to your device.';
+  };
+
+  const AccordionSection = ({ title, id, children }: { title: string; id: string; children: React.ReactNode }) => {
+    const isOpen = expandedSection === id;
+    return (
+      <div style={{
+        backgroundColor: 'white',
+        border: '1px solid #e5e7eb',
+        borderRadius: '8px',
+        marginBottom: '12px',
+        overflow: 'hidden'
+      }}>
+        <div 
+          style={{
+            padding: '12px',
+            fontWeight: '500',
+            cursor: 'pointer',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            fontSize: '14px',
+            backgroundColor: '#f9fafb'
+          }}
+          onClick={() => setExpandedSection(isOpen ? '' : id)}
+        >
+          <span>{title}</span>
+          <span style={{ color: '#9ca3af' }}>{isOpen ? '−' : '+'}</span>
+        </div>
+        {isOpen && (
+          <div style={{ padding: '12px' }}>
+            {children}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  // Phone frame styles
+  const phoneFrameStyle: React.CSSProperties = {
+    width: '320px',
+    height: '640px',
+    backgroundColor: '#000',
+    borderRadius: '30px',
+    padding: '4px',
+    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 8px #222'
+  };
+
+  const phoneContentStyle: React.CSSProperties = {
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'white',
+    borderRadius: '26px',
+    display: 'flex',
+    flexDirection: 'column',
+    overflow: 'hidden',
+    position: 'relative'
+  };
+
+  const contentAreaStyle: React.CSSProperties = {
+    flex: 1,
+    padding: '16px',
+    paddingBottom: '70px',
+    overflowY: 'auto'
+  };
+
+  const bottomNavStyle: React.CSSProperties = {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: 'white',
+    borderTop: '1px solid #e5e7eb',
+    display: 'flex',
+    justifyContent: 'space-around',
+    padding: '8px 0',
+    borderRadius: '0 0 26px 26px'
+  };
+
+  const navItemStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    fontSize: '11px',
+    color: '#9ca3af'
+  };
+
+  const activeNavItemStyle: React.CSSProperties = {
+    ...navItemStyle,
+    color: '#0d9488'
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="mx-auto max-w-md md:max-w-2xl lg:max-w-6xl">
-        <div className="bg-white md:mt-6 md:rounded-xl md:shadow-sm">
-          <div className="space-y-6 p-4 md:p-6 lg:grid lg:grid-cols-[320px_1fr] lg:gap-8 lg:space-y-0">
-            <div className="space-y-4">
-            <TabNavigation 
-              activeTab={activeTab} 
-              onTabChange={setActiveTab} 
-            />
+    <div style={{
+      minHeight: '100vh',
+      backgroundColor: '#f3f4f6',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: '16px'
+    }}>
+      {/* Phone frame container */}
+      <div style={phoneFrameStyle}>
+        <div style={phoneContentStyle}>
+          {/* Phone content */}
+          <div style={contentAreaStyle}>
             
-            <ProblemCountSlider
-              value={problemCount}
-              onChange={setProblemCount}
-            />
-            
-            <DifficultySelector
-              value={difficulty}
-              onChange={setDifficulty}
-              counts={difficultyStats}
-            />
-            
-            <PracticeMode
-              mode={mode}
-              onChange={setMode}
-            />
-            
-            <div className="space-y-3">
+            {/* Tab Navigation */}
+            <div style={{ display: 'flex', borderBottom: '1px solid #e5e7eb', marginBottom: '16px' }}>
               <button
-                onClick={handleGenerateSession}
-                disabled={loadingState.isLoading}
-                className={`w-full py-4 px-6 text-white font-semibold rounded-xl transition-all disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 ${getActionButtonStyle()}`}
+                onClick={() => setActiveTab('declarer')}
+                style={{
+                  flex: 1,
+                  textAlign: 'center',
+                  padding: '8px',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  color: activeTab === 'declarer' ? '#0d9488' : '#6b7280',
+                  borderBottom: activeTab === 'declarer' ? '2px solid #0d9488' : '2px solid transparent',
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer'
+                }}
               >
-                {loadingState.isLoading ? 'Loading...' : getActionButtonText()}
+                Declarer Play
               </button>
+              <button
+                onClick={() => setActiveTab('defense')}
+                disabled
+                style={{
+                  flex: 1,
+                  textAlign: 'center',
+                  padding: '8px',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  color: '#9ca3af',
+                  borderBottom: '2px solid transparent',
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  cursor: 'not-allowed'
+                }}
+              >
+                Defense
+              </button>
+            </div>
+
+            {/* Accordion Sections */}
+            <div>
+              <AccordionSection title="Core Settings" id="core">
+                <label style={{ display: 'block', fontSize: '12px', color: '#6b7280', marginBottom: '8px' }}>
+                  Number of Problems: {problemCount}
+                </label>
+                <input
+                  type="range"
+                  min="5"
+                  max="25"
+                  value={problemCount}
+                  onChange={(e) => setProblemCount(parseInt(e.target.value))}
+                  style={{
+                    width: '100%',
+                    height: '8px',
+                    backgroundColor: '#e5e7eb',
+                    borderRadius: '4px',
+                    outline: 'none',
+                    cursor: 'pointer'
+                  }}
+                />
+              </AccordionSection>
+
+              <AccordionSection title="Difficulty" id="difficulty">
+                <select
+                  value={difficulty}
+                  onChange={(e) => setDifficulty(e.target.value as DifficultySymbol | 'all')}
+                  style={{
+                    width: '100%',
+                    padding: '8px',
+                    fontSize: '14px',
+                    backgroundColor: '#f9fafb',
+                    border: '1px solid #e5e7eb',
+                    borderRadius: '6px'
+                  }}
+                >
+                  <option value="all">♣ ♦ ♥ ♠ All Difficulties</option>
+                  {Object.values(DIFFICULTY_LEVELS).map((level) => (
+                    <option key={level.symbol} value={level.symbol}>
+                      {level.symbol} {level.name}
+                      {difficultyStats[level.symbol] ? ` (${difficultyStats[level.symbol]})` : ''}
+                    </option>
+                  ))}
+                </select>
+              </AccordionSection>
+
+              <AccordionSection title="Techniques" id="techniques">
+                <select style={{
+                  width: '100%',
+                  padding: '8px',
+                  fontSize: '14px',
+                  backgroundColor: '#f9fafb',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '6px'
+                }}>
+                  <option>All Techniques</option>
+                  <option>Finesse</option>
+                  <option>Safety Play</option>
+                  <option>Squeeze</option>
+                </select>
+              </AccordionSection>
+
+              <AccordionSection title="Sources" id="sources">
+                <select style={{
+                  width: '100%',
+                  padding: '8px',
+                  fontSize: '14px',
+                  backgroundColor: '#f9fafb',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '6px'
+                }}>
+                  <option>All Sources</option>
+                  <option>Dynamic Declarer Play</option>
+                </select>
+              </AccordionSection>
+            </div>
+
+            {/* Practice Mode Toggle */}
+            <div style={{
+              backgroundColor: '#f3f4f6',
+              borderRadius: '8px',
+              padding: '4px',
+              display: 'flex',
+              marginTop: '20px',
+              marginBottom: '16px'
+            }}>
+              <button
+                onClick={() => setMode('play')}
+                style={{
+                  flex: 1,
+                  padding: '8px 12px',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  borderRadius: '6px',
+                  border: 'none',
+                  backgroundColor: mode === 'play' ? 'white' : 'transparent',
+                  color: mode === 'play' ? '#0d9488' : '#6b7280',
+                  boxShadow: mode === 'play' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+                  cursor: 'pointer'
+                }}
+              >
+                Play Here
+              </button>
+              <button
+                onClick={() => setMode('export')}
+                style={{
+                  flex: 1,
+                  padding: '8px 12px',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  borderRadius: '6px',
+                  border: 'none',
+                  backgroundColor: mode === 'export' ? 'white' : 'transparent',
+                  color: mode === 'export' ? '#059669' : '#6b7280',
+                  boxShadow: mode === 'export' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
+                  cursor: 'pointer'
+                }}
+              >
+                Export Only
+              </button>
+            </div>
+            
+            {/* Generate Button */}
+            <button
+              onClick={handleGenerateSession}
+              disabled={loadingState.isLoading}
+              style={{
+                width: '100%',
+                padding: '12px 16px',
+                marginTop: '8px',
+                color: 'white',
+                fontWeight: '600',
+                borderRadius: '8px',
+                border: 'none',
+                backgroundColor: mode === 'play' ? '#0d9488' : '#059669',
+                cursor: loadingState.isLoading ? 'not-allowed' : 'pointer',
+                opacity: loadingState.isLoading ? 0.5 : 1
+              }}
+            >
+              🚀 {loadingState.isLoading ? 'Loading...' : getActionButtonText()}
+            </button>
+            
+            <p style={{ 
+              fontSize: '12px', 
+              color: '#6b7280', 
+              textAlign: 'center', 
+              marginTop: '8px' 
+            }}>
+              {getActionDescription()}
+            </p>
+            
+            {/* Results/Preview Area */}
+            <div style={{ marginTop: '16px' }}>
+              {loadingState.isLoading && (
+                <div style={{
+                  border: '2px dashed #d1d5db',
+                  borderRadius: '8px',
+                  padding: '24px',
+                  textAlign: 'center',
+                  color: '#6b7280'
+                }}>
+                  <div style={{ fontSize: '24px', marginBottom: '8px' }}>⏳</div>
+                  <div style={{ fontSize: '14px' }}>Loading puzzles...</div>
+                </div>
+              )}
               
-              <p className="text-sm text-gray-600 text-center">
-                {getActionDescription()}
-              </p>
+              {loadingState.error && (
+                <div style={{
+                  border: '2px solid #fecaca',
+                  backgroundColor: '#fef2f2',
+                  borderRadius: '8px',
+                  padding: '16px',
+                  textAlign: 'center'
+                }}>
+                  <div style={{ color: '#dc2626', fontSize: '14px' }}>{loadingState.error}</div>
+                  <button 
+                    onClick={() => setLoadingState({ isLoading: false, error: null })}
+                    style={{
+                      marginTop: '8px',
+                      fontSize: '12px',
+                      color: '#dc2626',
+                      textDecoration: 'underline',
+                      backgroundColor: 'transparent',
+                      border: 'none',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    Try Again
+                  </button>
+                </div>
+              )}
               
-              <div className="text-center">
-                <button className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors">
-                  📊 View Stats
-                </button>
-              </div>
+              {!loadingState.isLoading && !loadingState.error && selectedPuzzles.length > 0 && (
+                <div style={{
+                  backgroundColor: '#f0fdfa',
+                  border: '1px solid #5eead4',
+                  borderRadius: '8px',
+                  padding: '16px'
+                }}>
+                  <div style={{ 
+                    fontSize: '14px', 
+                    fontWeight: '500', 
+                    color: '#065f46',
+                    marginBottom: '4px'
+                  }}>
+                    ✓ {selectedPuzzles.length} puzzles ready
+                  </div>
+                  <div style={{ fontSize: '12px', color: '#047857' }}>
+                    {selectedPuzzles[0]?.book_title} - {selectedPuzzles[0]?.difficulty} level
+                  </div>
+                </div>
+              )}
+              
+              {!loadingState.isLoading && !loadingState.error && selectedPuzzles.length === 0 && (
+                <div style={{
+                  border: '2px dashed #d1d5db',
+                  borderRadius: '8px',
+                  padding: '24px',
+                  textAlign: 'center',
+                  color: '#6b7280'
+                }}>
+                  <div style={{ fontSize: '32px', marginBottom: '8px' }}>🃏</div>
+                  <div style={{ fontSize: '14px' }}>Configure settings and generate session</div>
+                </div>
+              )}
             </div>
           </div>
           
-          <div className="lg:border-l lg:border-gray-100 lg:pl-8">
-            {loadingState.isLoading && (
-              <LoadingSpinner text="Loading puzzles..." />
-            )}
-            
-            {loadingState.error && (
-              <ErrorMessage 
-                message={loadingState.error} 
-                onRetry={() => setLoadingState({ isLoading: false, error: null })}
-              />
-            )}
-            
-            {!loadingState.isLoading && !loadingState.error && (
-              <>
-                {selectedPuzzles.length > 0 ? (
-                  <PuzzlePreview 
-                    puzzles={selectedPuzzles} 
-                    onClear={() => setSelectedPuzzles([])}
-                  />
-                ) : (
-                  <div className="text-center text-gray-500 py-16 px-4">
-                    <div className="text-6xl mb-6">🃏</div>
-                    <h3 className="text-lg font-medium text-gray-900 mb-2">Ready to Practice?</h3>
-                    <p className="text-gray-600 max-w-sm mx-auto">
-                      Configure your session settings and click "{getActionButtonText()}" to get started
-                    </p>
-                  </div>
-                )}
-              </>
-            )}
-          </div>
+          {/* Bottom Navigation */}
+          <div style={bottomNavStyle}>
+            <div style={activeNavItemStyle}>
+              <div style={{ fontSize: '18px', marginBottom: '2px' }}>📚</div>
+              <span>Practice</span>
+            </div>
+            <div style={navItemStyle}>
+              <div style={{ fontSize: '18px', marginBottom: '2px' }}>📊</div>
+              <span>Stats</span>
+            </div>
+            <div style={navItemStyle}>
+              <div style={{ fontSize: '18px', marginBottom: '2px' }}>🕒</div>
+              <span>History</span>
+            </div>
+            <div style={navItemStyle}>
+              <div style={{ fontSize: '18px', marginBottom: '2px' }}>👤</div>
+              <span>Profile</span>
+            </div>
           </div>
         </div>
       </div>
