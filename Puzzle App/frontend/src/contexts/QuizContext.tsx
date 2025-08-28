@@ -1,4 +1,6 @@
-import React, { createContext, useState, ReactNode } from 'react';
+// import React, { createContext, useState, ReactNode } from 'react';
+// 👍 This is the corrected code
+import { type ReactNode, createContext, useState } from 'react';
 import type { Puzzle } from '../types/Puzzle';
 import type { AIScoreResult } from '../services/AIService';
 
