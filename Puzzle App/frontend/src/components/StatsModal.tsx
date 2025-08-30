@@ -1,5 +1,4 @@
 import React from 'react';
-import { useAuth } from '../contexts/AuthContext';
 import { progressService } from '../services/ProgressService';
 
 interface StatsModalProps {
@@ -8,7 +7,6 @@ interface StatsModalProps {
 }
 
 export const StatsModal: React.FC<StatsModalProps> = ({ isOpen, onClose }) => {
-  const { isOfflineMode } = useAuth();
   const [stats, setStats] = React.useState<any>(null);
   const [loading, setLoading] = React.useState(false);
 
