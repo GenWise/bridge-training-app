@@ -8,7 +8,7 @@ export const StatsView: React.FC = () => {
   const [sessions, setSessions] = useState<Session[]>([])
   const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState<'overview' | 'sessions'>('overview')
-  const { user, isOfflineMode } = useAuth()
+  const { isOfflineMode } = useAuth()
 
   useEffect(() => {
     const loadStats = async () => {

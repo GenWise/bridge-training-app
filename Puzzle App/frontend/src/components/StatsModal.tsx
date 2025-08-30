@@ -8,7 +8,7 @@ interface StatsModalProps {
 }
 
 export const StatsModal: React.FC<StatsModalProps> = ({ isOpen, onClose }) => {
-  const { user, isOfflineMode } = useAuth();
+  const { isOfflineMode } = useAuth();
   const [stats, setStats] = React.useState<any>(null);
   const [loading, setLoading] = React.useState(false);
 

@@ -22,7 +22,7 @@ export const SessionBuilder: React.FC = () => {
   const [showAuthModal, setShowAuthModal] = useState(false);
   const [showProfileView, setShowProfileView] = useState(false);
   const [showStatsModal, setShowStatsModal] = useState(false);
-  const { user, isOfflineMode } = useAuth();
+  const { user } = useAuth();
 
   // Load difficulty statistics on component mount
   useEffect(() => {
