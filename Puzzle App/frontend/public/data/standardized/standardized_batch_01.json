@@ -1,0 +1,122 @@
+[
+  {
+    "puzzle_id": "1",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "10",
+    "solution_page": "12",
+    "final_contract": "6♦ by West",
+    "declarer": "West",
+    "opening_lead": "♥10, you play the jack and win the trick",
+    "all_hands_north": "♠Q10876 ♥Q10984 ♦3 ♣105",
+    "all_hands_south": "♠J942 ♥7 ♦J1065 ♣KJ96",
+    "all_hands_east": "♠AK ♥J65 ♦A7 ♣Q87432",
+    "all_hands_west": "♠53 ♥AK32 ♦KQ9842 ♣A",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Ruffing finesse and trump management",
+    "key_insight": "If you ruff the fourth round of hearts, maybe South will overruff from a four-card trump holding.",
+    "solution_line": "2. Ace of diamonds, small safety play against a singleton diamond with South. 3. A heart to the ace. 4. A spade to the king. 5. A heart to the king, if South ruffs, then we draw trumps. 6. Heart ruffed.",
+    "result_comparison": "Closed Rooms: Contract 3NT: +430 for EW. Correct play: +920 = +10 IMP. Down one: -50 = -10 IMP.",
+    "additional_notes": "West is a declarer on all boards."
+  },
+  {
+    "puzzle_id": "2",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "10",
+    "solution_page": "13",
+    "final_contract": "4NT by West",
+    "declarer": "West",
+    "opening_lead": "♥6",
+    "all_hands_north": "♠K2 ♥Q976 ♦J108 ♣9652",
+    "all_hands_south": "♠A653 ♥1085 ♦Q3 ♣Q1087",
+    "all_hands_east": "♠10987 ♥432 ♦K4 ♣KJ43",
+    "all_hands_west": "♠QJ4 ♥AKJ ♦A97652 ♣A",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Communication maintenance",
+    "key_insight": "You must maintain your communications. In particular, you must arrange how you can cash the king of clubs.",
+    "solution_line": "2. Win the club ace. 3. Concede a diamond trick. If the diamonds break 3-2, the contract is cold.",
+    "result_comparison": "The result from the Closed Room: Contract 3NT: +430 for Croatia. Correct play: tie. One off -50 = -10 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "3",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "10",
+    "solution_page": "14",
+    "final_contract": "6♦ by West",
+    "declarer": "West",
+    "opening_lead": "♥A and a switch to ♦6",
+    "all_hands_north": "♠J965 ♥AK7 ♦76 ♣K1093",
+    "all_hands_south": "♠87 ♥J106432 ♦3 ♣J854",
+    "all_hands_east": "♠432 ♥Q98 ♦Q10852 ♣Q6",
+    "all_hands_west": "♠AKQ10 ♥5 ♦AKJ94 ♣A72",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Squeeze technique",
+    "key_insight": "A squeeze can often give you an extra chance.",
+    "solution_line": "2. Win the trick in the dummy (with the eight). 3. Ruff a heart with the diamond ace. 4. Enter the dummy with ♦10. 5. Ruff a heart with the diamond king. 6. Play the club ace. 7-8. Play two top spades (in case North has a singleton, or the jack falls). 9. Reach the dummy with ♦Q and run the remaining trumps – the squeeze is ready.",
+    "result_comparison": "The result from the Closed Rooms: Contract 4♠: +620 for EW. You played for the squeeze: +1370 = +13 IMP. Going down: -100 for EW = -12 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "4",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "10",
+    "solution_page": "15",
+    "final_contract": "6♠ by West",
+    "declarer": "West",
+    "opening_lead": "♥Q",
+    "all_hands_north": "♠653 ♥QJ86 ♦J832 ♣75",
+    "all_hands_south": "♠K4 ♥K753 ♦1074 ♣8643",
+    "all_hands_east": "♠1082 ♥A109 ♦AK ♣AKQJ2",
+    "all_hands_west": "♠AQJ97 ♥42 ♦Q965 ♣109",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Trump management and timing",
+    "key_insight": "Do not play the ace of Trumps before seeking discards on the clubs.",
+    "solution_line": "Win the heart lead and immediately play clubs. If South ruffs a club, overruff, play the spade ace, go to the table with the diamond ace and play the fourth club. If South ruffs, you overruff enter the dummy with the king of diamonds and pitch a heart on the fifth round of clubs. If North ruffs the third round of clubs, you can try to finesse the spade king.",
+    "result_comparison": "Closed room: Contract 6♠ +1430 for EW. Play of cards followed the above analysis: – no swing. Incorrect play (even if you happen to make the contract – for example the heart ace was followed by the spade finesse): -100 = -17 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "5",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "10",
+    "solution_page": "16",
+    "final_contract": "4♠ by West",
+    "declarer": "West",
+    "opening_lead": "Q♣",
+    "all_hands_north": "♠54 ♥762 ♦9754 ♣QJ104",
+    "all_hands_south": "♠A73 ♥Q54 ♦KQ86 ♣875",
+    "all_hands_east": "♠J1082 ♥KJ83 ♦103 ♣K96",
+    "all_hands_west": "♠KQ96 ♥A109 ♦AJ2 ♣A32",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Trying all options",
+    "key_insight": "Make sure you try all the options.",
+    "solution_line": "Win the first trick with the king of clubs and lead the Three of diamonds. If South has both diamond honours, you can pitch your losing club on the jack of diamonds. If not, then you will have to find the queen of hearts.",
+    "result_comparison": "Closed room – Contract 3NT: +400 for EW. Play a diamond at trick 2: +420 = +1 IMP. If not (even if you think you would have guess right in hearts!): -50 = -10 IMP.",
+    "additional_notes": ""
+  }
+]

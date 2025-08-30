@@ -62,7 +62,7 @@ export const SolutionView: React.FC = () => {
 
   const activeNavItemStyle: React.CSSProperties = {
     ...navItemStyle,
-    color: '#0d9488'
+    color: '#8B1538'
   };
 
   // Create BBO URL showing all hands
@@ -104,7 +104,7 @@ export const SolutionView: React.FC = () => {
   return (
     <div style={{
       minHeight: '100vh',
-      backgroundColor: '#f3f4f6',
+      backgroundColor: '#FAFBFC',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -145,10 +145,10 @@ export const SolutionView: React.FC = () => {
             {/* Compact progress */}
             <div style={{ 
               textAlign: 'center', 
-              fontSize: '13px', 
-              color: '#6b7280',
+              fontSize: '15px', 
+              color: '#2C3E50',
               marginBottom: '12px',
-              fontWeight: '500'
+              fontWeight: '600'
             }}>
               Problem {progress.current} of {progress.total} - Complete Solution
             </div>
@@ -170,11 +170,16 @@ export const SolutionView: React.FC = () => {
                       width: '100%',
                       height: '100%',
                       border: 'none',
-                      display: iframeLoaded ? 'block' : 'none'
+                      margin: 0,
+                      padding: 0,
+                      display: iframeLoaded ? 'block' : 'none',
+                      backgroundColor: 'white'
                     }}
                     onLoad={() => setIframeLoaded(true)}
                     onError={() => setIframeError(true)}
                     title="Complete Bridge Deal"
+                    frameBorder="0"
+                    scrolling="no"
                   />
                   {!iframeLoaded && !iframeError && (
                     <div style={{
@@ -302,24 +307,44 @@ export const SolutionView: React.FC = () => {
               </div>
             )}
 
-            {/* Next Problem Button - with extra margin for scrolling */}
-            <button
-              onClick={() => quiz.nextPuzzle()}
-              style={{
-                width: '100%',
-                padding: '14px',
-                backgroundColor: '#0d9488',
-                color: 'white',
-                border: 'none',
-                borderRadius: '8px',
-                fontSize: '16px',
-                fontWeight: '600',
-                cursor: 'pointer',
-                marginBottom: '20px' // Extra space at bottom
-              }}
-            >
-              Next Problem →
-            </button>
+            {/* Navigation buttons */}
+            <div style={{ display: 'flex', gap: '8px', marginBottom: '20px' }}>
+              <button
+                onClick={() => quiz.backToPuzzle()}
+                style={{
+                  flex: 1,
+                  padding: '12px',
+                  backgroundColor: 'transparent',
+                  border: '1.5px solid #8B1538',
+                  borderRadius: '12px',
+                  fontSize: '14px',
+                  fontWeight: '500',
+                  color: '#8B1538',
+                  cursor: 'pointer',
+                  height: '50px'
+                }}
+              >
+                ← Back to Puzzle
+              </button>
+              <button
+                onClick={() => quiz.nextPuzzle()}
+                style={{
+                  flex: 1,
+                  padding: '12px',
+                  backgroundColor: '#8B1538',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '12px',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  height: '50px',
+                  boxShadow: '0px 2px 8px rgba(139, 21, 56, 0.15)'
+                }}
+              >
+                Next Problem →
+              </button>
+            </div>
           </div>
           
           {/* Bottom Navigation */}

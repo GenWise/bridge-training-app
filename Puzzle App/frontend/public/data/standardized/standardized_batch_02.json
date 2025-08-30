@@ -1,0 +1,122 @@
+[
+  {
+    "puzzle_id": "6",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "11",
+    "solution_page": "17",
+    "final_contract": "3NT by West",
+    "declarer": "West",
+    "opening_lead": "South opened 1♠. Lead ♠J, winning, followed by ♠10, South playing low",
+    "all_hands_north": "♠J106 ♥10976 ♦1092 ♣J87",
+    "all_hands_south": "♠AQ952 ♥J82 ♦QJ4 ♣Q10",
+    "all_hands_east": "♠73 ♥KQ ♦K7653 ♣A943",
+    "all_hands_west": "♠K84 ♥A543 ♦A8 ♣K652",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Squeeze execution",
+    "key_insight": "Remember the squeeze. If you cannot set up a squeeze yourself, get the defenders to help you.",
+    "solution_line": "Ducking a second spade by South practically guarantees that the suit breaks 5-3. Defenders do not like to enable a declarer to throw them in. Win the second spade and concede a spade trick to South. In this way the communication between the defenders is broken. If South runs his winning spades North will have problems with discards. You discard two clubs from your hand and two diamonds and a club from the dummy. According to the cards North throws, you will know which squeeze to execute. You can play for any of three squeezes: a) heart-club squeeze against North, b) diamond-club squeeze against North, c) A double squeeze, diamond-club squeeze against North and diamond-heart squeeze against South.",
+    "result_comparison": "Closed room – Contract 5♣ +600 for EW. You played a spade in a third trick, I presume that you have handled this one: +600 – no swing. You tried some other option: – down one -100 = -12 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "7",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "11",
+    "solution_page": "18",
+    "final_contract": "6♦ by West",
+    "declarer": "West",
+    "opening_lead": "♠A and ♦3 switch. S plays ♦5",
+    "all_hands_north": "♠A8762 ♥AQ95 ♦763 ♣6",
+    "all_hands_south": "♠10953 ♥107632 ♦5 ♣QJ10",
+    "all_hands_east": "♠QJ4 ♥— ♦Q1098 ♣987543",
+    "all_hands_west": "♠K ♥KJ84 ♦AKJ42 ♣AK2",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Distribution protection",
+    "key_insight": "Protect the contract against unfavourable distribution whenever possible.",
+    "solution_line": "2. Win the diamond in the dummy. 3-4. Pitch two clubs to two spades. 5. Play a club to the ace. 6. Enter dummy with a diamond. 7. Ruff a club with the ace of diamonds. 8. Enter dummy with a diamond. 9. Ruff a club. You have made the contract against a 3-1 distribution of both diamonds and clubs (3 diamonds with a singleton club).",
+    "result_comparison": "Closed room: Contract 3NT. +600 for EW. If you played successfully: +1370 = +13 IMP. If you failed: -100 = -12 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "8",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "11",
+    "solution_page": "19",
+    "final_contract": "6♣ by West",
+    "declarer": "West",
+    "opening_lead": "♠4",
+    "all_hands_north": "♠10874 ♥QJ4 ♦98 ♣J753",
+    "all_hands_south": "♠K6532 ♥K76 ♦7653 ♣6",
+    "all_hands_east": "♠A ♥109852 ♦AKQJ10 ♣Q2",
+    "all_hands_west": "♠QJ9 ♥A3 ♦42 ♣AK10984",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Trump management and safety",
+    "key_insight": "Concede a trump trick when it is safe to do so.",
+    "solution_line": "At the second trick lead ♣2 and finesse ♣10! To make the contract you need only five trump tricks, to go with five diamonds and the major-suit aces. You should lose a trump trick while dummy has a trump to protect you against a spade continuation. North is powerless.",
+    "result_comparison": "Closed room – Contract 6♣ +940 for EW (Lead ♠6). You finessed the Ten of clubs: +920 = -1 IMP. You played carelessly: one off -50 = -14 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "9",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "11",
+    "solution_page": "20",
+    "final_contract": "6NT by West",
+    "declarer": "West",
+    "opening_lead": "♣7",
+    "all_hands_north": "♠Q10942 ♥K8752 ♦3 ♣73",
+    "all_hands_south": "♠873 ♥J1096 ♦J765 ♣65",
+    "all_hands_east": "♠A5 ♥42 ♦AQ98 ♣KJ942",
+    "all_hands_west": "♠KJ6 ♥AQ ♦K1042 ♣AQ108",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Two-way finesse technique",
+    "key_insight": "When you have a two-way finesse, choose your play so that you will have a second chance if you guess wrongly.",
+    "solution_line": "Play the ace and queen of diamonds. If South holds four diamonds to the jack, you can finesse on the third round. If North holds four diamonds, you can remove his clubs and throw him in on the fourth round of diamonds. He will then have to give you a twelfth trick in one of the major suits.",
+    "result_comparison": "The result from the Closed Room – Contract 6NT. +1440 for EW. You made the correct play of the ace and queen of diamonds: +1440 – no swing. If not: -100 = -17 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "10",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "11",
+    "solution_page": "21",
+    "final_contract": "4♥ by West",
+    "declarer": "West",
+    "opening_lead": "♦K",
+    "all_hands_north": "♠A63 ♥6 ♦KQ10752 ♣642",
+    "all_hands_south": "♠QJ10 ♥43 ♦J964 ♣K753",
+    "all_hands_east": "♠875 ♥AJ82 ♦A8 ♣AQ98",
+    "all_hands_west": "♠K942 ♥KQ10975 ♦3 ♣J10",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Keeping dangerous opponent off lead",
+    "key_insight": "Keep the dangerous opponent off lead.",
+    "solution_line": "With the intention of keeping South off lead, and preventing a lead through the king of spades, you should allow the king of diamonds to win the first trick. You can then pitch a club on the ace of diamonds and, after drawing trumps, take a ruffing club finesse into the safe hand.",
+    "result_comparison": "Closed room – Contract 4♥. +620 for EW. You conceded the king of diamonds – no swing. You took the first trick with the ace of diamonds: -100 = -12 IMP.",
+    "additional_notes": ""
+  }
+]

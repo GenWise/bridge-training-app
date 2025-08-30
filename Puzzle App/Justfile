@@ -1,0 +1,210 @@
+# Bridge Training App - Development Commands
+# https://github.com/casey/just
+
+# Variables
+frontend_dir := "frontend"
+puzzle_db_dir := "../Puzzle Database/dynamic_declarer_play_part1"
+
+# Default recipe - show available commands
+default:
+    @just --list --unsorted
+
+# === Frontend Development ===
+
+# Start the development server
+dev:
+    @echo "🚀 Starting frontend development server..."
+    cd {{frontend_dir}} && npm run dev
+
+# Build the frontend for production
+build:
+    @echo "📦 Building frontend for production..."
+    cd {{frontend_dir}} && npm run build
+
+# Preview production build locally
+preview:
+    @echo "👀 Previewing production build..."
+    cd {{frontend_dir}} && npm run preview
+
+# Run linter
+lint:
+    @echo "🔍 Linting code..."
+    cd {{frontend_dir}} && npm run lint
+
+# Install frontend dependencies
+install:
+    @echo "📥 Installing frontend dependencies..."
+    cd {{frontend_dir}} && npm install
+
+# Install a specific package
+install-package package:
+    @echo "📥 Installing {{package}}..."
+    cd {{frontend_dir}} && npm install {{package}}
+
+# === Supabase Database ===
+
+# Start local Supabase (requires Docker)
+db-start:
+    @echo "🗄️  Starting local Supabase..."
+    npx supabase start
+
+# Stop local Supabase
+db-stop:
+    @echo "⏹️  Stopping local Supabase..."
+    npx supabase stop
+
+# Reset database and run migrations
+db-reset:
+    @echo "♻️  Resetting database and running migrations..."
+    npx supabase db reset
+
+# Generate TypeScript types from database
+db-types:
+    @echo "📝 Generating TypeScript types..."
+    npx supabase gen types typescript --local > {{frontend_dir}}/src/types/supabase.ts
+
+# Run database migrations
+db-migrate:
+    @echo "⬆️  Running database migrations..."
+    npx supabase db push
+
+# === Puzzle Data Management ===
+
+# Migrate puzzle data to Supabase
+migrate-puzzles:
+    @echo "🌉 Migrating puzzles to Supabase..."
+    cd scripts && python3 migrate_puzzles_to_supabase.py
+
+# Check puzzle data integrity
+check-puzzles:
+    @echo "🔍 Checking puzzle data integrity..."
+    cd "{{puzzle_db_dir}}" && python3 analyze_completeness.py
+
+# === Git Operations ===
+
+# Add all changes and commit with message
+commit message:
+    @echo "📝 Committing changes..."
+    git add .
+    git commit -m "{{message}}"
+
+# Commit with conventional commit format
+commit-feat feature:
+    @echo "✨ Committing new feature..."
+    git add .
+    git commit -m "feat: {{feature}}"
+
+# Commit a bug fix
+commit-fix bug:
+    @echo "🐛 Committing bug fix..."
+    git add .
+    git commit -m "fix: {{bug}}"
+
+# Commit documentation changes
+commit-docs changes:
+    @echo "📚 Committing documentation..."
+    git add .
+    git commit -m "docs: {{changes}}"
+
+# Push to remote repository
+push:
+    @echo "⬆️  Pushing to remote..."
+    git push
+
+# Full commit and push workflow
+ship message:
+    @echo "🚢 Shipping changes..."
+    git add .
+    git commit -m "{{message}}"
+    git push
+
+# === Deployment ===
+
+# Deploy to Vercel
+deploy:
+    @echo "🌐 Deploying to Vercel..."
+    cd {{frontend_dir}} && vercel --prod
+
+# Build and deploy
+build-deploy: build deploy
+
+# === Development Setup ===
+
+# First-time setup
+setup:
+    @echo "🛠️  Setting up development environment..."
+    @just install
+    @echo "✅ Setup complete! Use 'just dev' to start development server"
+
+# Clean all node_modules and reinstall
+clean-install:
+    @echo "🧹 Cleaning and reinstalling dependencies..."
+    cd {{frontend_dir}} && rm -rf node_modules package-lock.json
+    cd {{frontend_dir}} && npm install
+
+# === Testing & Quality ===
+
+# Run type check
+type-check:
+    @echo "🔍 Running TypeScript type check..."
+    cd {{frontend_dir}} && npx tsc --noEmit
+
+# Run all quality checks
+check-all:
+    @echo "🧪 Running all quality checks..."
+    @just lint
+    @just type-check
+    @echo "✅ All checks passed!"
+
+# === Environment Management ===
+
+# Show environment info
+env-info:
+    @echo "📊 Environment Information:"
+    @echo "Node version: $(node --version)"
+    @echo "npm version: $(npm --version)" 
+    @echo "Python version: $(python3 --version)"
+    @echo "Current directory: $(pwd)"
+    @echo "Git branch: $(git branch --show-current)"
+
+# === Logs & Debugging ===
+
+# View development logs
+logs:
+    @echo "📜 Starting development with logs..."
+    cd {{frontend_dir}} && npm run dev --verbose
+
+# Clean build artifacts
+clean:
+    @echo "🧹 Cleaning build artifacts..."
+    cd {{frontend_dir}} && rm -rf dist .vite node_modules/.vite
+
+# === Utility Commands ===
+
+# Open app in browser (after starting dev server)
+open:
+    @echo "🌐 Opening app in browser..."
+    open http://localhost:5173
+
+# Generate a new component (requires template)
+new-component name:
+    @echo "🧩 Creating new component: {{name}}..."
+    @echo "// TODO: Implement component template generation"
+
+# Show project stats
+stats:
+    @echo "📈 Project Statistics:"
+    @echo "Frontend files: $(find {{frontend_dir}}/src -name '*.tsx' -o -name '*.ts' | wc -l | tr -d ' ')"
+    @echo "Total lines of code: $(find {{frontend_dir}}/src -name '*.tsx' -o -name '*.ts' -exec cat {} + | wc -l | tr -d ' ')"
+    @echo "Dependencies: $(cd {{frontend_dir}} && npm list --depth=0 2>/dev/null | grep -c '─')"
+
+# === Help ===
+
+# Show detailed help for a command
+help command:
+    @echo "📖 Help for '{{command}}':"
+    @just --show {{command}}
+
+# Show all available commands with descriptions
+help-all:
+    @just --list

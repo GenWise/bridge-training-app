@@ -64,7 +64,7 @@ export const QuizView: React.FC = () => {
 
   const activeNavItemStyle: React.CSSProperties = {
     ...navItemStyle,
-    color: '#0d9488'
+    color: '#8B1538'
   };
 
   const bboURL = createBBOViewerURL(puzzle);
@@ -123,7 +123,7 @@ export const QuizView: React.FC = () => {
   return (
     <div style={{
       minHeight: '100vh',
-      backgroundColor: '#f3f4f6',
+      backgroundColor: '#FAFBFC',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -133,24 +133,65 @@ export const QuizView: React.FC = () => {
         <div style={phoneContentStyle}>
           <div style={contentAreaStyle}>
             
-            {/* Progress indicator */}
+            {/* Progress indicator and navigation */}
             <div style={{ 
-              textAlign: 'center', 
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
               fontSize: '14px', 
               color: '#6b7280',
               marginBottom: '12px'
             }}>
-              Problem {progress.current} of {progress.total}
+              <button
+                onClick={() => quiz.previousPuzzle()}
+                disabled={progress.current === 1}
+                style={{
+                  padding: '6px 10px',
+                  backgroundColor: 'transparent',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '6px',
+                  fontSize: '13px',
+                  fontWeight: '500',
+                  color: progress.current === 1 ? '#BDC3C7' : '#7F8C8D',
+                  cursor: progress.current === 1 ? 'not-allowed' : 'pointer',
+                  opacity: progress.current === 1 ? 0.5 : 1
+                }}
+              >
+                ← Previous
+              </button>
+              
+              <span style={{ fontWeight: '600', fontSize: '15px', color: '#2C3E50' }}>
+                Problem {progress.current} of {progress.total}
+              </span>
+              
+              <button
+                onClick={() => quiz.nextPuzzle()}
+                disabled={progress.current === progress.total}
+                style={{
+                  padding: '6px 10px',
+                  backgroundColor: 'transparent',
+                  border: '1px solid #e5e7eb',
+                  borderRadius: '6px',
+                  fontSize: '13px',
+                  fontWeight: '500',
+                  color: progress.current === progress.total ? '#BDC3C7' : '#7F8C8D',
+                  cursor: progress.current === progress.total ? 'not-allowed' : 'pointer',
+                  opacity: progress.current === progress.total ? 0.5 : 1
+                }}
+              >
+                Next →
+              </button>
             </div>
 
             {/* Puzzle metadata */}
             <div style={{
-              fontSize: '12px',
-              backgroundColor: '#f3f4f6',
-              padding: '12px',
-              borderRadius: '8px',
+              fontSize: '13px',
+              backgroundColor: '#F8F9FA',
+              padding: '16px',
+              borderRadius: '12px',
               marginBottom: '16px',
-              lineHeight: '1.5'
+              lineHeight: '1.5',
+              color: '#2C3E50'
             }}>
               <div><strong>Contract:</strong> {puzzle.final_contract}</div>
               <div><strong>Lead:</strong> {puzzle.opening_lead}</div>
@@ -174,11 +215,16 @@ export const QuizView: React.FC = () => {
                       width: '100%',
                       height: '100%',
                       border: 'none',
-                      display: iframeLoaded ? 'block' : 'none'
+                      margin: 0,
+                      padding: 0,
+                      display: iframeLoaded ? 'block' : 'none',
+                      backgroundColor: 'white'
                     }}
                     onLoad={() => setIframeLoaded(true)}
                     onError={() => setIframeError(true)}
                     title="Bridge Hand"
+                    frameBorder="0"
+                    scrolling="no"
                   />
                   {!iframeLoaded && !iframeError && (
                     <div style={{
@@ -206,9 +252,10 @@ export const QuizView: React.FC = () => {
                 <div style={{ marginBottom: '16px' }}>
                   <label style={{
                     display: 'block',
-                    fontSize: '14px',
-                    fontWeight: '500',
-                    marginBottom: '8px'
+                    fontSize: '15px',
+                    fontWeight: '600',
+                    marginBottom: '8px',
+                    color: '#2C3E50'
                   }}>
                     Your Reasoning:
                   </label>
@@ -219,12 +266,13 @@ export const QuizView: React.FC = () => {
                     style={{
                       width: '100%',
                       height: '80px',
-                      border: '1px solid #e5e7eb',
-                      borderRadius: '6px',
-                      padding: '8px',
+                      border: '1.5px solid #D5DBDB',
+                      borderRadius: '12px',
+                      padding: '16px',
                       fontSize: '14px',
                       fontFamily: 'Inter, sans-serif',
-                      resize: 'none'
+                      resize: 'none',
+                      backgroundColor: '#FFFFFF'
                     }}
                   />
                 </div>
@@ -235,16 +283,18 @@ export const QuizView: React.FC = () => {
                   disabled={quiz.state.isScoring || !quiz.state.userReasoning.trim()}
                   style={{
                     width: '100%',
-                    padding: '12px',
-                    backgroundColor: quiz.state.isScoring ? '#6b7280' : '#0d9488',
+                    padding: '16px',
+                    backgroundColor: quiz.state.isScoring ? '#6b7280' : '#8B1538',
                     color: 'white',
                     border: 'none',
-                    borderRadius: '8px',
+                    borderRadius: '12px',
                     fontSize: '16px',
                     fontWeight: '600',
                     cursor: quiz.state.isScoring ? 'not-allowed' : 'pointer',
                     marginBottom: '12px',
-                    opacity: !quiz.state.userReasoning.trim() ? 0.5 : 1
+                    opacity: !quiz.state.userReasoning.trim() ? 0.5 : 1,
+                    height: '50px',
+                    boxShadow: '0px 2px 8px rgba(139, 21, 56, 0.15)'
                   }}
                 >
                   {quiz.state.isScoring ? 'Analyzing...' : 'Submit for Score'}
@@ -255,13 +305,14 @@ export const QuizView: React.FC = () => {
                     onClick={handleShowSolution}
                     style={{
                       flex: 1,
-                      padding: '10px',
+                      padding: '12px',
                       backgroundColor: 'transparent',
-                      border: '1px solid #e5e7eb',
-                      borderRadius: '8px',
+                      border: '1.5px solid #8B1538',
+                      borderRadius: '12px',
                       fontSize: '14px',
-                      color: '#6b7280',
-                      cursor: 'pointer'
+                      color: '#8B1538',
+                      cursor: 'pointer',
+                      height: '50px'
                     }}
                   >
                     Show Solution
@@ -270,13 +321,14 @@ export const QuizView: React.FC = () => {
                     onClick={() => quiz.nextPuzzle()}
                     style={{
                       flex: 1,
-                      padding: '10px',
+                      padding: '12px',
                       backgroundColor: 'transparent',
-                      border: '1px solid #e5e7eb',
-                      borderRadius: '8px',
+                      border: '1.5px solid #8B1538',
+                      borderRadius: '12px',
                       fontSize: '14px',
-                      color: '#6b7280',
-                      cursor: 'pointer'
+                      color: '#8B1538',
+                      cursor: 'pointer',
+                      height: '50px'
                     }}
                   >
                     Skip
@@ -344,13 +396,15 @@ export const QuizView: React.FC = () => {
                     style={{
                       flex: 1,
                       padding: '12px',
-                      backgroundColor: '#0d9488',
+                      backgroundColor: '#8B1538',
                       color: 'white',
                       border: 'none',
-                      borderRadius: '8px',
+                      borderRadius: '12px',
                       fontSize: '14px',
                       fontWeight: '600',
-                      cursor: 'pointer'
+                      cursor: 'pointer',
+                      height: '50px',
+                      boxShadow: '0px 2px 8px rgba(139, 21, 56, 0.15)'
                     }}
                   >
                     View Full Solution
@@ -361,11 +415,12 @@ export const QuizView: React.FC = () => {
                       flex: 1,
                       padding: '12px',
                       backgroundColor: 'transparent',
-                      border: '1px solid #e5e7eb',
-                      borderRadius: '8px',
+                      border: '1.5px solid #8B1538',
+                      borderRadius: '12px',
                       fontSize: '14px',
-                      color: '#6b7280',
-                      cursor: 'pointer'
+                      color: '#8B1538',
+                      cursor: 'pointer',
+                      height: '50px'
                     }}
                   >
                     Next Problem

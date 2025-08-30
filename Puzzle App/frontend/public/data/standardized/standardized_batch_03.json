@@ -1,0 +1,122 @@
+[
+  {
+    "puzzle_id": "11",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "22",
+    "solution_page": "24",
+    "final_contract": "3NT by West",
+    "declarer": "West",
+    "opening_lead": "♥4. South plays the queen",
+    "all_hands_north": "♠Q42 ♥K9843 ♦A65 ♣52",
+    "all_hands_south": "♠J753 ♥Q7 ♦J8432 ♣K6",
+    "all_hands_east": "♠A108 ♥65 ♦K107 ♣A8743",
+    "all_hands_west": "♠K96 ♥AJ102 ♦Q9 ♣QJ109",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Communication breaking",
+    "key_insight": "Break the communication between the opponents.",
+    "solution_line": "Concede the trick with the queen of hearts. This is a non-routine move. However, let's see what will happen if you win the first trick with the ace and run the queen of clubs. South will win with the king and play a heart back to 10 and king. North will then establish the heart suit and reach the setting trick with his ace of diamonds.",
+    "result_comparison": "The result from the Closed Room – Contract 3♠, +130 for EW. You ducked the first heart: +400= +7 IMP. You took the trick with the ace of hearts: one down -50= -5 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "12",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "22",
+    "solution_page": "25",
+    "final_contract": "6NT by West",
+    "declarer": "West",
+    "opening_lead": "♦10",
+    "all_hands_north": "♠J982 ♥1065 ♦1092 ♣652",
+    "all_hands_south": "♠K1063 ♥Q873 ♦53 ♣873",
+    "all_hands_east": "♠AQ5 ♥J4 ♦Q874 ♣QJ104",
+    "all_hands_west": "♠74 ♥AK92 ♦AKJ6 ♣AK9",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Combining chances",
+    "key_insight": "Combine as many chances as possible.",
+    "solution_line": "Win the diamond lead in the West hand and play ♥2 to the jack, hoping that North holds the queen. If South wins with the queen of hearts, win the return and cash two heart tricks in case the ♥10 drops. Finally, you will finesse the spade king or play for a heart-spade squeeze. The fall of the cards in the suits outside spades will often give you a clue as to which option to try.",
+    "result_comparison": "Closed Room – Contract 6♥, +920 for EW. You played well: +990 = +2 IMP. Wrong declarer's play: -50 = -14 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "13",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "22",
+    "solution_page": "26",
+    "final_contract": "4♠ by West",
+    "declarer": "West",
+    "opening_lead": "♥J",
+    "all_hands_north": "♠87 ♥J10874 ♦QJ8 ♣A93",
+    "all_hands_south": "♠632 ♥A653 ♦109 ♣QJ105",
+    "all_hands_east": "♠KJ ♥KQ2 ♦K742 ♣8764",
+    "all_hands_west": "♠AQ10954 ♥9 ♦A653 ♣K2",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Planning before first trick",
+    "key_insight": "Make a plan before playing to the first trick.",
+    "solution_line": "Play low from the dummy. If South overtakes with the ace, to switch to a club, you will have two discards for your diamond losers. Otherwise you will take the ruffing finesse in hearts and establish a heart trick to discard a club.",
+    "result_comparison": "Closed room – Contract 4♠, +620 for EW after the opening lead with the ace of clubs. You ducked the jack of hearts: no swing. You failed to do so: -100 = -12 IMP. Henry also had an idea to concede the trick with the jack of hearts. His opponent, Miss Zula, looked coquettishly his way. Taking opportunity of his long hesitation she whispered passionately:– If you play beautifully I shall be yours this night.– Queen of hearts, please – instructed harshly Henry.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "14",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "22",
+    "solution_page": "27",
+    "final_contract": "4♠ by West",
+    "declarer": "West",
+    "opening_lead": "Three rounds of hearts",
+    "all_hands_north": "♠64 ♥KQ102 ♦J1072 ♣Q75",
+    "all_hands_south": "♠953 ♥A743 ♦98 ♣KJ86",
+    "all_hands_east": "♠A102 ♥965 ♦A65 ♣A432",
+    "all_hands_west": "♠KQJ87 ♥J8 ♦KQ43 ♣109",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Dummy reversal",
+    "key_insight": "Remember the dummy reversal.",
+    "solution_line": "3. Ruff the third round of hearts. 4. Concede a club. 6. After winning the return, play the ace of clubs and ruff a club. 8-9. Spade king and a small spade to 10 – if spades break 3-2, ruff the last club and enter dummy to draw the last trump. If spades break 4-1 play the diamonds and if the suit is 3-3 you bring the contract home.",
+    "result_comparison": "Closed room – Contract 3♠, +140 for EW. You played dummy reversal: +420 = +7 IMP. You tried to ruff a diamond in the dummy: -50 = -5 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "15",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "22",
+    "solution_page": "28",
+    "final_contract": "4♥ by West",
+    "declarer": "West",
+    "opening_lead": "North opened 3♠. Lead ♠Q",
+    "all_hands_north": "♠QJ109752 ♥A ♦J65 ♣Q5",
+    "all_hands_south": "♠8 ♥65 ♦109873 ♣AJ932",
+    "all_hands_east": "♠A43 ♥K873 ♦AQ42 ♣K7",
+    "all_hands_west": "♠K6 ♥QJ10942 ♦K ♣10864",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Discarding in threatened suit",
+    "key_insight": "Discard in the suit where a ruff is threatened.",
+    "solution_line": "1. Win with the king of spades. 2-3. Overtake the king of diamonds with the ace and pitch a spade on the diamond queen. 4. Now it is safe to play trumps.",
+    "result_comparison": "Closed room – your teammates played in 4♠ doubled, down two: +500 for EW. You discarded a spade +420 = -2 IMP. You allowed the defenders to score a spade ruff: -50 = -11 IMP.",
+    "additional_notes": ""
+  }
+]

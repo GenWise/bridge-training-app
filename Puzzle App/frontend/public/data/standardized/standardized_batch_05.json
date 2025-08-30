@@ -1,0 +1,122 @@
+[
+  {
+    "puzzle_id": "21",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "34",
+    "solution_page": "36",
+    "final_contract": "4♥ by West",
+    "declarer": "West",
+    "opening_lead": "♠J",
+    "all_hands_north": "♠J107 ♥87 ♦AJ95 ♣Q862",
+    "all_hands_south": "♠K862 ♥4 ♦Q1063 ♣K975",
+    "all_hands_east": "♠AQ94 ♥AJ1065 ♦72 ♣43",
+    "all_hands_west": "♠53 ♥KQ932 ♦K84 ♣AJ10",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Keeping dangerous defender off lead",
+    "key_insight": "Keep the dangerous defender off lead.",
+    "solution_line": "You should play the four of spades from dummy. If South overtakes with the spade king, to switch to diamonds, you will be able to finesse the nine of spades and pitch two clubs. Let's assume that South does not overtake and North continues with the spade seven. Order of play: 2. The ace of spades. 3. A spade ruffed. You may figure out about the spade distribution and play the right card; queen or the nine. A spade trick would be useful if hearts were 3-0. 4. A heart to the dummy. 5. The last spade ruffed. 6. A heart to the dummy. 7. A club to the ten. North will be end-played when he wins the first round of clubs. You would go down only when South holds both missing club honours and the ace of diamonds is with North.",
+    "result_comparison": "Closed room – Contract 4♥ (East), lead ♠2, +420 for EW. You ducked the jack of spades: – no swing. Your card play was different: -50 = -10 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "22",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "34",
+    "solution_page": "38",
+    "final_contract": "4♥ by West",
+    "declarer": "West",
+    "opening_lead": "♠Q",
+    "all_hands_north": "♠QJ983 ♥43 ♦K3 ♣KQ85",
+    "all_hands_south": "♠A652 ♥62 ♦J109 ♣9762",
+    "all_hands_east": "♠K107 ♥AQ8 ♦A8764 ♣43",
+    "all_hands_west": "♠4 ♥KJ10975 ♦Q52 ♣AJ10",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Keeping dangerous defender off lead",
+    "key_insight": "Once again, keep the dangerous defender off lead.",
+    "solution_line": "You should ducked the queen of spades. Why? South is a dangerous opponent who can lead through your club tenace. Order of play: 2-3. North switches to a heart and you draw trumps in one more round. 4-5. You then play a club to the ten. North wins with the queen and plays a club back (a spade or a diamond would give you the contract directly). 6. Cash the ace of clubs and pitch a diamond. 7-8 Play the ace of diamonds and a diamond to the queen – this is an extra chance to find the king of diamonds doubleton with North, who will be end-played.",
+    "result_comparison": "Closed room – Contract 3NT (East), Lead ♠2: +600 for EW. You played accurately: +620 = +1 IMP. You failed: -100 = -12 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "23",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "34",
+    "solution_page": "39",
+    "final_contract": "6♠ by West",
+    "declarer": "West",
+    "opening_lead": "♦Q",
+    "all_hands_north": "♠— ♥Q652 ♦QJ972 ♣AJ53",
+    "all_hands_south": "♠6 ♥98743 ♦K854 ♣Q76",
+    "all_hands_east": "♠Q109532 ♥J ♦A106 ♣1098",
+    "all_hands_west": "♠AKJ874 ♥AK10 ♦3 ♣K42",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Giving opponents chance to go wrong",
+    "key_insight": "Give the opponents a chance to go wrong.",
+    "solution_line": "Win the diamond lead in dummy and play a club to the king. • North may hold up the ace, hoping to give you a guess if you hold ♠K Q x. • Even if North wins the club ace, he may not to play a club back unless he holds the queen. There is a fair chance that you will be able to use your second chance – a finesse against the queen of hearts, to set up two club discards from the dummy.",
+    "result_comparison": "Closed room – Contract 4♠, +680 for EW. You played a club to the king and you are rewarded – a shrewd Spaniard holds up the ace. Result: +1430 = +13 IMP. You played differently: -13 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "24",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "34",
+    "solution_page": "40",
+    "final_contract": "4♠ by West",
+    "declarer": "West",
+    "opening_lead": "♠10",
+    "all_hands_north": "♠104 ♥Q762 ♦73 ♣AQ1042",
+    "all_hands_south": "♠AJ9 ♥K105 ♦982 ♣KJ87",
+    "all_hands_east": "♠Q873 ♥AJ943 ♦AQ4 ♣3",
+    "all_hands_west": "♠K652 ♥8 ♦KJ1065 ♣965",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Planning ahead",
+    "key_insight": "When making a plan, look a couple of tricks ahead.",
+    "solution_line": "Play the queen of trumps on the first trick. If the trumps behave 3-2, that it is enough to make the contract. Eric Rodwell ran the trump lead to his king and could not make the contract. Why? When North won the first round of clubs, he had played another trump. Two more rounds of trumps then killed the contract. Playing the queen forces the South's ace and gives you control over the trumps. You can win a trump return with the king and play on diamonds.",
+    "result_comparison": "Closed room – Contract 2♠, +170 for EW. If you played the spade queen: +420 = +6 IMP. You let it run to the king: -50 = -6 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "25",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "34",
+    "solution_page": "41",
+    "final_contract": "7♥ by West",
+    "declarer": "West",
+    "opening_lead": "♣3",
+    "all_hands_north": "♠KJ832 ♥5 ♦963 ♣Q1073",
+    "all_hands_south": "♠Q654 ♥9764 ♦52 ♣K96",
+    "all_hands_east": "♠— ♥AQ102 ♦AKQJ104 ♣A82",
+    "all_hands_west": "♠A1097 ♥KJ83 ♦87 ♣J54",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Guarding against unfavorable distributions",
+    "key_insight": "Guard yourself against unfavourable distributions.",
+    "solution_line": "2. The ace of hearts. 3. The queen of hearts, if South follows suit – overtake with the king. 4. Ruff a spade with the ♥10. 5. Finesse the ♥8 – if South began with ♥ 9 x x x.",
+    "result_comparison": "Closed room – Contract 6♥, +1430 for EW. You protected yourself against four trumps with South: +13 IMP. You failed to do so: -13 IMP.",
+    "additional_notes": ""
+  }
+]

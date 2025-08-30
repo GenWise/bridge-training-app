@@ -1,0 +1,122 @@
+[
+  {
+    "puzzle_id": "36",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "48",
+    "solution_page": "54",
+    "final_contract": "5♣ by West",
+    "declarer": "West",
+    "opening_lead": "♠A",
+    "all_hands_north": "♠AK105 ♥106 ♦K754 ♣Q84",
+    "all_hands_south": "♠Q832 ♥J9753 ♦A1063 ♣—",
+    "all_hands_east": "♠J9764 ♥AQ ♦J982 ♣32",
+    "all_hands_west": "♠— ♥K842 ♦Q ♣AKJ109765",
+    "visible_in_problem": [
+      "east",
+      "west"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Kill the link between defenders to avoid trump promotion",
+    "key_insight": "Pitch the queen of diamonds to kill the link between defenders. If North ruffs in front of dummy, he will not be able to cross to partner's hand with a diamond to receive a trump promotion.",
+    "solution_line": "1. Pitch the queen of diamonds to kill the link between defenders. After any continuation: 3-6. Cash the ace of clubs and two heart tricks. Return to your hand with a ruff and ruff a heart in dummy. If North ruffs in front of the dummy, he will not be able to cross to partner’s hand with a diamond to receive a trump promotion.",
+    "result_comparison": "Teammates played 4♠ doubled, result: two down, +300 for EW. You made 5♣: +7 IMP. You failed to break the communication in diamonds: it cost you -9 IMP.",
+    "additional_notes": "Round 4 - Match against France"
+  },
+  {
+    "puzzle_id": "37",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "48",
+    "solution_page": "55",
+    "final_contract": "6♣ by West",
+    "declarer": "West",
+    "opening_lead": "♦K",
+    "all_hands_north": "♠64 ♥1087 ♦KQ98 ♣Q1086",
+    "all_hands_south": "♠8532 ♥9652 ♦J654 ♣3",
+    "all_hands_east": "♠AK97 ♥QJ43 ♦2 ♣KJ75",
+    "all_hands_west": "♠QJ10 ♥AK ♦A1073 ♣A942",
+    "visible_in_problem": [
+      "east",
+      "west"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Play safely but with sense",
+    "key_insight": "Senseless safety play means knowing the appropriate techniques but not knowing how to apply them in a specific case. A club to the king. A heart to the ace, and not a club to the nine. The queen of clubs with the ten with North will kill the contract, because North will be able to force the dummy to ruff when he wins with the club queen.",
+    "solution_line": "Order of play: 2. A club to the king. 3. A heart to the ace, and not a club to the nine. Why? The queen of clubs with the ten with North will kill the contract, because North will be able to force the dummy to ruff when he wins with the club queen. 4. A club to the jack.",
+    "result_comparison": "Closed room - Contract 6♣, +920 for EW. You played accurately: you tied on the hand. A mistake will cost: -14 IMP. Overheard: Two partners discuss boards at lunch. – Look at this contract. Do you think I would make it? – Of course not. Even if you played it correctly, you would have gone down.",
+    "additional_notes": "Round 4 - Match against France"
+  },
+  {
+    "puzzle_id": "38",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "48",
+    "solution_page": "56",
+    "final_contract": "7♦ by West",
+    "declarer": "West",
+    "opening_lead": "♣A",
+    "all_hands_north": "♠Q104 ♥J852 ♦875 ♣AJ6",
+    "all_hands_south": "♠98 ♥K743 ♦106 ♣K8753",
+    "all_hands_east": "♠6 ♥Q109 ♦K932 ♣Q10942",
+    "all_hands_west": "♠AKJ7532 ♥A6 ♦AQJ4 ♣—",
+    "visible_in_problem": [
+      "east",
+      "west"
+    ],
+    "difficulty": "♥",
+    "main_technique": "Combine all your chances",
+    "key_insight": "The diamonds must break 3-2. The key question is how to play the spade suit. Finessing is the correct play but is there an extra chance? 1. Ruff the ace of clubs with the four of trumps. 2-3. Play the ace and queen of diamonds, overtaking with the king. If ♦10 did not fall, then draw the last trump and finesse the spade.",
+    "solution_line": "Order of play: 1. Ruff the ace of clubs with the four of trumps. 2-3. Play the ace and queen of diamonds, overtaking with the king. If ♦10 did not fall, then draw the last trump and finesse the spade. Note that playing the diamond grand slam, you need five trump tricks and seven spade tricks or six trump tricks and six spade tricks.",
+    "result_comparison": "Closed room - Contract 6♠, +1370 for EW. You have found the correct line: +13 IMP. You relied on the spade finesse: -16 IMP.",
+    "additional_notes": "Round 4 - Match against France"
+  },
+  {
+    "puzzle_id": "39",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "48",
+    "solution_page": "57",
+    "final_contract": "6♦ by West",
+    "declarer": "West",
+    "opening_lead": "♦J",
+    "all_hands_north": "♠J94 ♥75 ♦J1098 ♣Q1082",
+    "all_hands_south": "♠Q1072 ♥8432 ♦6 ♣A973",
+    "all_hands_east": "♠A8653 ♥AKJ109 ♦A43 ♣—",
+    "all_hands_west": "♠K ♥Q6 ♦KQ752 ♣KJ654",
+    "visible_in_problem": [
+      "east",
+      "west"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Concede a round of trumps when safe",
+    "key_insight": "Concede the jack of diamonds in both hands! After any continuation, ruff a club and draw the trumps. This safety play ensures you don't lose trump control.",
+    "solution_line": "Concede the jack of diamonds in both hands! After any continuation, ruff a club and draw the trumps.",
+    "result_comparison": "Closed room - Contract 4♥, +650 for EW. The trump safety play produced +12 IMP. If you were not prudent, it cost you -13 IMP.",
+    "additional_notes": "Round 4 - Match against France"
+  },
+  {
+    "puzzle_id": "40",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "48",
+    "solution_page": "58",
+    "final_contract": "4♥ by West",
+    "declarer": "West",
+    "opening_lead": "♦Q",
+    "all_hands_north": "♠K972 ♥5 ♦QJ10972 ♣97",
+    "all_hands_south": "♠J54 ♥A1064 ♦A83 ♣Q105",
+    "all_hands_east": "♠Q10863 ♥32 ♦4 ♣KJ862",
+    "all_hands_west": "♠A ♥KQJ987 ♦K65 ♣A43",
+    "visible_in_problem": [
+      "east",
+      "west"
+    ],
+    "difficulty": "♥",
+    "main_technique": "Reading the defense to determine suit breaks",
+    "key_insight": "The main point - The way the opponents play often indicates the break of the suits. The opponents did not play the ace of hearts and a heart, which suggests that the trumps will break 4-1.",
+    "solution_line": "Order of play: 3-5. Cash the ace of spades, play the king of diamond and ruff a diamond. 2. Play the queen of hearts, discovering that South holds ♥A 10 x x. Thanks to your early spade ruff, you can score all the low trumps in your hand. Assume that South holds up the ace of trumps. 6-10. Cash the king and ace of clubs, play the ace and concede a club. You make five trump tricks in your hand, one diamond ruff and four side-suit winners.",
+    "result_comparison": "Closed room - Contract 4♥ doubled +590 for EW. You made 4♥: contract made exactly",
+    "additional_notes": "Round 4 - Match against France"
+  }
+]

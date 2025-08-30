@@ -5,16 +5,27 @@ class PuzzleDataService {
   private loadPromise: Promise<Puzzle[]> | null = null;
 
   private readonly BATCH_FILES = [
-    'dynamic_declarer_play_part1_batch_01.json',
-    'dynamic_declarer_play_part1_batch_02.json',
-    'dynamic_declarer_play_part1_batch_03.json',
-    'dynamic_declarer_play_part1_batch_04.json',
-    'dynamic_declarer_play_part1_batch_05.json',
-    'dynamic_declarer_play_part1_batch_06.json',
-    'dynamic_declarer_play_part1_batch_07.json',
-    'dynamic_declarer_play_part1_batch_08.json',
-    'dynamic_declarer_play_part1_batch_09.json',
-    'dynamic_declarer_play_part1_batch_10.json'
+    'standardized_batch_01.json',
+    'standardized_batch_02.json',
+    'standardized_batch_03.json',
+    'standardized_batch_04.json',
+    'standardized_batch_05.json',
+    'standardized_batch_06.json',
+    'standardized_batch_07.json',
+    'standardized_dynamic_declarer_play_part1_batch_08.json',
+    'standardized_dynamic_declarer_play_part1_batch_09.json',
+    'standardized_dynamic_declarer_play_part1_batch_10.json',
+    'standardized_dynamic_declarer_play_part1_batch_11.json',
+    'standardized_dynamic_declarer_play_part1_batch_12.json',
+    'standardized_batch_13_puzzles_81_90.json',
+    'standardized_batch_14_puzzles_91_100.json',
+    'standardized_batch_15_puzzles_101_110.json',
+    'standardized_batch_16_puzzles_111_120.json',
+    'standardized_batch_17_puzzles_121_130.json',
+    'standardized_batch_18_puzzles_131_140.json',
+    'standardized_batch_19_puzzles_141_150.json',
+    'standardized_batch_20_puzzles_151_160.json',
+    'standardized_batch_21_puzzles_161_170.json'
   ];
 
   async loadAllPuzzles(): Promise<Puzzle[]> {
@@ -46,7 +57,7 @@ class PuzzleDataService {
 
     for (const filename of this.BATCH_FILES) {
       try {
-        const response = await fetch(`/data/${filename}`);
+        const response = await fetch(`/data/standardized/${filename}`);
         if (!response.ok) {
           throw new Error(`Failed to load ${filename}: ${response.statusText}`);
         }

@@ -3,6 +3,7 @@
 import { type ReactNode, createContext, useState } from 'react';
 import type { Puzzle } from '../types/Puzzle';
 import type { AIScoreResult } from '../services/AIService';
+import { progressService } from '../services/ProgressService';
 
 type QuizScreen = 'quiz' | 'scored' | 'solution';
 
@@ -14,6 +15,8 @@ interface QuizState {
   aiScore: AIScoreResult | null;
   isActive: boolean;
   isScoring: boolean;
+  sessionId: string | null;
+  startTime: number;
 }
 
 interface QuizContextType {
@@ -24,6 +27,7 @@ interface QuizContextType {
   setUserReasoning: (reasoning: string) => void;
   submitForScoring: () => Promise<void>;
   showFullSolution: () => void;
+  backToPuzzle: () => void;
   exitQuiz: () => void;
   getCurrentPuzzle: () => Puzzle | null;
   getProgress: () => { current: number; total: number };
@@ -43,10 +47,21 @@ export const QuizProvider: React.FC<QuizProviderProps> = ({ children }) => {
     currentScreen: 'quiz',
     aiScore: null,
     isActive: false,
-    isScoring: false
+    isScoring: false,
+    sessionId: null,
+    startTime: 0
   });
 
-  const startQuiz = (puzzles: Puzzle[]) => {
+  const startQuiz = async (puzzles: Puzzle[]) => {
+    // Create session for progress tracking
+    let sessionId: string | null = null;
+    try {
+      sessionId = await progressService.createSession(puzzles);
+      console.log('📊 Created session:', sessionId);
+    } catch (error) {
+      console.warn('Failed to create session:', error);
+    }
+
     setState({
       puzzles,
       currentIndex: 0,
@@ -54,7 +69,9 @@ export const QuizProvider: React.FC<QuizProviderProps> = ({ children }) => {
       currentScreen: 'quiz',
       aiScore: null,
       isActive: true,
-      isScoring: false
+      isScoring: false,
+      sessionId,
+      startTime: Date.now()
     });
   };
 
@@ -70,7 +87,8 @@ export const QuizProvider: React.FC<QuizProviderProps> = ({ children }) => {
         userReasoning: '',
         currentScreen: 'quiz',
         aiScore: null,
-        isScoring: false
+        isScoring: false,
+        startTime: Date.now()
       };
     });
   };
@@ -103,12 +121,28 @@ export const QuizProvider: React.FC<QuizProviderProps> = ({ children }) => {
       if (puzzle) {
         let score;
         try {
-          // Try real Claude API first
+          // Try Groq/Claude API
           score = await aiService.scoreReasoningAgainstSolution(state.userReasoning, puzzle);
         } catch (apiError) {
-          console.log('Claude API unavailable, using mock scoring:', apiError);
+          console.log('AI API unavailable, using mock scoring:', apiError);
           // Fallback to mock scoring
           score = await aiService.mockScoreReasoning(state.userReasoning);
+        }
+        
+        // Save attempt to progress service
+        if (state.sessionId) {
+          const timeSpent = Math.floor((Date.now() - state.startTime) / 1000);
+          try {
+            await progressService.saveAttempt(
+              state.sessionId,
+              puzzle,
+              state.userReasoning,
+              score,
+              timeSpent
+            );
+          } catch (error) {
+            console.warn('Failed to save attempt:', error);
+          }
         }
         
         setState(prev => ({
@@ -131,7 +165,24 @@ export const QuizProvider: React.FC<QuizProviderProps> = ({ children }) => {
     }));
   };
 
-  const exitQuiz = () => {
+  const backToPuzzle = () => {
+    setState(prev => ({
+      ...prev,
+      currentScreen: prev.aiScore ? 'scored' : 'quiz'
+    }));
+  };
+
+  const exitQuiz = async () => {
+    // Complete the session if it exists
+    if (state.sessionId) {
+      try {
+        await progressService.completeSession(state.sessionId);
+        console.log('🏁 Session completed');
+      } catch (error) {
+        console.warn('Failed to complete session:', error);
+      }
+    }
+
     setState({
       puzzles: [],
       currentIndex: 0,
@@ -139,7 +190,9 @@ export const QuizProvider: React.FC<QuizProviderProps> = ({ children }) => {
       currentScreen: 'quiz',
       aiScore: null,
       isActive: false,
-      isScoring: false
+      isScoring: false,
+      sessionId: null,
+      startTime: 0
     });
   };
 
@@ -163,6 +216,7 @@ export const QuizProvider: React.FC<QuizProviderProps> = ({ children }) => {
     setUserReasoning,
     submitForScoring,
     showFullSolution,
+    backToPuzzle,
     exitQuiz,
     getCurrentPuzzle,
     getProgress

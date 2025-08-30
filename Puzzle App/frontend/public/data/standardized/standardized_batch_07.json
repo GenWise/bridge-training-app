@@ -1,0 +1,122 @@
+[
+  {
+    "puzzle_id": "31",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "47",
+    "solution_page": "49",
+    "final_contract": "5♥ by West",
+    "declarer": "West",
+    "opening_lead": "♣7",
+    "all_hands_north": "♠92 ♥87 ♦A76 ♣KJ9742",
+    "all_hands_south": "♠A86 ♥943 ♦54 ♣A10865",
+    "all_hands_east": "♠KQJ103 ♥652 ♦KJ1098 ♣—",
+    "all_hands_west": "♠754 ♥AKQJ10 ♦Q32 ♣Q3",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Communication destruction",
+    "key_insight": "Destroy the defenders' communications",
+    "solution_line": "A declarer must be careful with the communication. It is enough on this hand to play a diamond to the queen and the opponents are helpless.",
+    "result_comparison": "Closed room – Contract 4 ♥, +450 for EW. You played a diamond to the queen after ruffing a club – no swing. You played it differently -50 = -11 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "32",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "47",
+    "solution_page": "50",
+    "final_contract": "4♥ by West",
+    "declarer": "West",
+    "opening_lead": "♣Q",
+    "all_hands_north": "♠873 ♥K3 ♦K10972 ♣QJ6",
+    "all_hands_south": "♠K652 ♥5 ♦Q853 ♣K1052",
+    "all_hands_east": "♠QJ109 ♥J974 ♦64 ♣943",
+    "all_hands_west": "♠A4 ♥AQ10862 ♦AJ ♣A87",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Playing with the odds",
+    "key_insight": "Play in line with the odds. Plan you declarer's play carefully.",
+    "solution_line": "There is no doubt that the spade finesse chance is much bigger than the singleton heart king. Play ♥10 in the second trick and take over with the jack in the dummy in case the king of hearts third lies third with the North. then everything is easy we have three entries to the dummy, which is enough to establish a third trick in spades.",
+    "result_comparison": "Closed room – Contract 4♥, Lead ♠7, +620 for EW. You played ♥10 in the second trick: – ties on the deal. You played the ace of hearts first: one down -12 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "33",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "47",
+    "solution_page": "51",
+    "final_contract": "3NT by West",
+    "declarer": "West",
+    "opening_lead": "♠3, S plays the queen",
+    "all_hands_north": "♠108732 ♥K109 ♦543 ♣93",
+    "all_hands_south": "♠Q94 ♥A84 ♦K62 ♣J1087",
+    "all_hands_east": "♠6 ♥QJ7652 ♦AQ ♣AQ52",
+    "all_hands_west": "♠AKJ5 ♥3 ♦J10987 ♣K64",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Discarding blocking cards",
+    "key_insight": "Look for a way to discard blocking cards.",
+    "solution_line": "1. Duck the spade queen. Do not worry. South will continue spades. 2-3. Pitch two diamonds to two spades. 4. Concede the trick to the king of diamonds.",
+    "result_comparison": "Closed room – the French have landed in a lucky contract 4♥. The spade finesse worked and heart distribution brought the contract home. Result: +420 for EW. You withheld the queen of spades: +400, you lost only 1 IMP. Otherwise: -10 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "34",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "47",
+    "solution_page": "52",
+    "final_contract": "5♣ by West",
+    "declarer": "West",
+    "opening_lead": "♦2",
+    "all_hands_north": "♠KQ98 ♥Q75 ♦K942 ♣64",
+    "all_hands_south": "♠765 ♥K984 ♦Q10873 ♣3",
+    "all_hands_east": "♠J103 ♥J1032 ♦J65 ♣KJ9",
+    "all_hands_west": "♠A42 ♥A6 ♦A ♣AQ108752",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Letting opponents do the work",
+    "key_insight": "Let the opponents do the work for you.",
+    "solution_line": "2-5. Enter dummy twice in clubs to ruff two diamonds. 6-7. Play the ace of hearts and a heart. Of course there is a layout of cards when you may lose but in this way you give yourself the best chance.",
+    "result_comparison": "Closed Room: This time the French played a much better contract – 3NT, +430 for EW. If you played correctly: -1 IMP. You failed: -10 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "35",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "47",
+    "solution_page": "53",
+    "final_contract": "3NT by West",
+    "declarer": "West",
+    "opening_lead": "♥7",
+    "all_hands_north": "♠K9 ♥9752 ♦A43 ♣J642",
+    "all_hands_south": "♠Q1085 ♥643 ♦87 ♣Q1053",
+    "all_hands_east": "♠643 ♥J108 ♦QJ1092 ♣87",
+    "all_hands_west": "♠AJ72 ♥AKQ ♦K65 ♣AK9",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Combining chances",
+    "key_insight": "Combine all you chances.",
+    "solution_line": "2. Concede a spade trick. 3. Win the next heart trick. 4. Play the king of diamonds. 5. Cash the ace of spades. 6. Play a diamond to the dummy. 7. Play a spade to the jack. You win when the ace of diamonds is doubleton (or singleton), when spades break 3-3 or North holds a doubleton honour.",
+    "result_comparison": "Closed room: The French rarely make technical mistakes. Contract 3NT, +600 for EW. You have found a proper line: +600 – draw. You have failed: -12 IMP.",
+    "additional_notes": ""
+  }
+]

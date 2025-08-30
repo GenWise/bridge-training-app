@@ -1,0 +1,122 @@
+[
+  {
+    "puzzle_id": "26",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "35",
+    "solution_page": "42",
+    "final_contract": "3NT by West",
+    "declarer": "West",
+    "opening_lead": "♠5",
+    "all_hands_north": "♠J10754 ♥J942 ♦A6 ♣Q5",
+    "all_hands_south": "♠K8 ♥Q10873 ♦43 ♣J1062",
+    "all_hands_east": "♠AQ ♥65 ♦9752 ♣A8743",
+    "all_hands_west": "♠9632 ♥AK ♦KQJ108 ♣K9",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Blocking opponent's suit",
+    "key_insight": "Block the suit that has been led against you.",
+    "solution_line": "Taking the first trick with the ace is effective in all three cases. Playing the queen will fail against case (a) when the ace of diamonds is with spades. So, winning the first trick with the ace is correct although in the long run the profits will not be high.",
+    "result_comparison": "Closed room – Contract 3NT (East) +600 for EW. You played the ace – no swing. You played the queen -12 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "27",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "35",
+    "solution_page": "43",
+    "final_contract": "6♦ by West",
+    "declarer": "West",
+    "opening_lead": "♥J",
+    "all_hands_north": "♠Q72 ♥J3 ♦742 ♣A8762",
+    "all_hands_south": "♠J6543 ♥Q10985 ♦65 ♣5",
+    "all_hands_east": "♠1098 ♥742 ♦83 ♣KQJ109",
+    "all_hands_west": "♠AK ♥AK6 ♦AKQJ109 ♣43",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♥",
+    "main_technique": "Complex endgame technique",
+    "key_insight": "Do not surrender when the situation looks bad.",
+    "solution_line": "Win the heart lead and play five rounds of trumps. Cash the ace and king of spades and play a club to the king, which will hold. Ruff a spade, cash the king of hearts. Play a club and maybe miraculously you will find the perfect layout: 3-2-4-4 or 3-2-3-5 shape, including the ace of clubs. There is also a possibility that you will make the contract because the opponents throw the wrong cards.",
+    "result_comparison": "Closed room – an incredible contract 6♠, easily made despite that the trumps break 5-1: +920 for EW. You found your way to win: +990 = +2 IMP You went down: -14 IMP.",
+    "additional_notes": "Opening lead corrected to ♥J based on North's actual holding"
+  },
+  {
+    "puzzle_id": "28",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "35",
+    "solution_page": "44",
+    "final_contract": "6♥ by West",
+    "declarer": "West",
+    "opening_lead": "♣2. You play a heart to the queen. South plays ♥10",
+    "all_hands_north": "♠K83 ♥J875 ♦J4 ♣Q1082",
+    "all_hands_south": "♠Q1096 ♥10 ♦8653 ♣J765",
+    "all_hands_east": "♠A75 ♥AQ96 ♦109 ♣A943",
+    "all_hands_west": "♠J42 ♥K432 ♦AKQ72 ♣K",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Accurate planning",
+    "key_insight": "Plan your play accurately.",
+    "solution_line": "3. Ruff a club (do not cash the ace) 4-6. Cash all hearts (finesse the jack if the break is 4-1) 7. Concede a diamond (finesse the jack). Note that a small inaccuracy, such as a heart to the king instead of ruffing a club, will ruin the precise plan (taking into consideration the 4-1 trump break).",
+    "result_comparison": "Closed room – Contract 6 ♥, +980 for EW. You made the game: – tie. You went down: -14 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "29",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "35",
+    "solution_page": "45",
+    "final_contract": "4♠ by West",
+    "declarer": "West",
+    "opening_lead": "♥J",
+    "all_hands_north": "♠Q108 ♥J1098 ♦Q8 ♣10762",
+    "all_hands_south": "♠KJ ♥5432 ♦K109 ♣J983",
+    "all_hands_east": "♠9765 ♥Q7 ♦J653 ♣AQ4",
+    "all_hands_west": "♠A432 ♥AK6 ♦A742 ♣K5",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Camouflage and deception",
+    "key_insight": "Camouflage your plans and the defenders may go astray.",
+    "solution_line": "2-3. Concede a trump, the opponents will continue hearts. 4. Cash the ace of diamonds at an early stage to make it difficult for North to unblock the queen of diamonds. Cash your ace of trumps, eliminate clubs and hearts and exit with a trump.",
+    "result_comparison": "Closed room: Contract 4♠, +620 for EW. The ace of diamonds cashed at an early stage secured you a tie on the hand. If you did it too late, North unblocked the diamond queen: -12 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "30",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "35",
+    "solution_page": "46",
+    "final_contract": "6♥ by West",
+    "declarer": "West",
+    "opening_lead": "♠8. You played the ace of hearts and South discarded ♦2",
+    "all_hands_north": "♠85 ♥K2 ♦K1093 ♣K9843",
+    "all_hands_south": "♠J10932 ♥— ♦J852 ♣10752",
+    "all_hands_east": "♠764 ♥9753 ♦764 ♣AQ6",
+    "all_hands_west": "♠AKQ ♥AQJ10864 ♦AQ ♣J",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Letting opponents take finesses",
+    "key_insight": "Let the opponents take finesses for you.",
+    "solution_line": "3. The jack of clubs (North does not cover) to the ace. 4-5. Cash your spades. 6. End-play North with the king of hearts. In this way you take your chance of two finesses. North must play a club to avoid leading in to the diamond tenace and you can try dummy's queen.",
+    "result_comparison": "Closed room – Contract 6♥, +980 for EW. You played a club to the ace, cashed the spades in three rounds and a heart: – no swing. You played in a different way: -14 IMP.",
+    "additional_notes": ""
+  }
+]

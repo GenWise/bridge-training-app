@@ -1,0 +1,122 @@
+[
+  {
+    "puzzle_id": "16",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "23",
+    "solution_page": "29",
+    "final_contract": "4♥ by West",
+    "declarer": "West",
+    "opening_lead": "♣J",
+    "all_hands_north": "♠K1052 ♥Q53 ♦K1075 ♣J10",
+    "all_hands_south": "♠J764 ♥10 ♦A983 ♣9874",
+    "all_hands_east": "♠A98 ♥98764 ♦642 ♣A6",
+    "all_hands_west": "♠Q3 ♥AKJ2 ♦QJ ♣KQ532",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♥",
+    "main_technique": "Communication maintenance",
+    "key_insight": "Maintain communication between the hands.",
+    "solution_line": "1. The ace of clubs. 2. The ace of hearts. 3-4. The king and queen of clubs, discarding a spade. If North ruffs with the queen, you discard a spade from dummy and (with the trump entries to your hand intact) can set up a club for a further spade discard.You lose against these two layouts: – ♥QTx with two clubs with North. – ♥Qxx with two clubs with South. ",
+    "result_comparison": "Closed room – Contract 4♥, +620 for EW (Lead ♣2). Proper play +620 = no swing. You did not follow the correct line -100 = -12 IMP.",
+    "additional_notes": "Opening lead corrected to ♣J based on North's actual holding"
+  },
+  {
+    "puzzle_id": "17",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "23",
+    "solution_page": "30",
+    "final_contract": "3NT by West",
+    "declarer": "West",
+    "opening_lead": "♠4",
+    "all_hands_north": "♠AJ742 ♥J109 ♦J43 ♣65",
+    "all_hands_south": "♠10953 ♥754 ♦K109 ♣KJ3",
+    "all_hands_east": "♠Q6 ♥K832 ♦AQ82 ♣987",
+    "all_hands_west": "♠K8 ♥AQ6 ♦765 ♣AQ1042",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♥",
+    "main_technique": "Simple play selection",
+    "key_insight": "Do not bother about small additional chances, specifically when it may cost you an overtrick or an extra undertrick.",
+    "solution_line": "The author of this problem recommends playing three rounds of hearts and, if they break 3-3, finessing the queen of clubs, then finessing the king of diamonds. This provides an additional chance, he says, if North holds a singleton jack of clubs singleton. What rubbish! In the long run, you will score more losses than profits by following such lines, not to mention overburdening the mind. Make the simple and obvious play – the double club finesse.",
+    "result_comparison": "Closed room – Contract 4♥, +450 for EW. You played for double club finesse: +460 = no swing. You were looking for a miraculous solution: -50 = -11 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "18",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "23",
+    "solution_page": "31",
+    "final_contract": "3NT by West",
+    "declarer": "West",
+    "opening_lead": "South opened 3♥. Lead ♦J, on which S discarded ♥4",
+    "all_hands_north": "♠A84 ♥— ♦J109754 ♣A953",
+    "all_hands_south": "♠972 ♥K1098764 ♦— ♣1087",
+    "all_hands_east": "♠J1053 ♥Q32 ♦86 ♣QJ42",
+    "all_hands_west": "♠KQ6 ♥AJ5 ♦AKQ32 ♣K6",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♦",
+    "main_technique": "Entry management with bidding clues",
+    "key_insight": "Remember the bidding when you seek an entry to dummy.",
+    "solution_line": "1. Win the diamond lead. 2-5. Play spades. North takes his ace on the third round and exits with a diamond. 6-7. After winning the diamond return, play the king of clubs and another club. 8. North wins the second club trick and plays a diamond for the third time. You pitch a club from the dummy. And now comes the key play. You play the five of hearts from your hand (North pitches a club) and the two of hearts from the dummy! South wins with the five of hearts and has to concede an entry to dummy, either in hearts or clubs. Funny, isn’t it – South gave away the contract away on the first trick when he discarded the four of hearts. ",
+    "result_comparison": "Closed room – Contract 2♥ doubled (NS), +500 for EW. You found the extraordinary endplay: +420 = -2 IMP. You failed in finding this difficult play: -50 = -11 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "19",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "23",
+    "solution_page": "32",
+    "final_contract": "3NT by West",
+    "declarer": "West",
+    "opening_lead": "♠Q",
+    "all_hands_north": "♠QJ986 ♥9872 ♦107 ♣104",
+    "all_hands_south": "♠7532 ♥53 ♦A952 ♣AJ9",
+    "all_hands_east": "♠A ♥QJ6 ♦QJ643 ♣Q862",
+    "all_hands_west": "♠K104 ♥AK104 ♦K8 ♣K753",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♣",
+    "main_technique": "Preventing dangerous defender from gaining lead",
+    "key_insight": "Make it expensive for the dangerous defender to gain the lead.",
+    "solution_line": "1. Ace of spades. 2. A diamond to the king. 3. A heart to the jack. 4. A club to the king. 5. A diamond to the jack. In this way you can establish nine tricks before South gets a chance to gain the lead.",
+    "result_comparison": "Closed room – Contract 3NT, +600 for EW. An accurate play produced no swing. A mistake was expensive -12 IMP.",
+    "additional_notes": ""
+  },
+  {
+    "puzzle_id": "20",
+    "book_title": "Dynamic Declarer Play - Virtual European Championship part 1",
+    "author": "Krzysztof Martens",
+    "problem_page": "23",
+    "solution_page": "33",
+    "final_contract": "5♣ by West",
+    "declarer": "West",
+    "opening_lead": "Two rounds of hearts and the spade queen",
+    "all_hands_north": "♠QJ6 ♥AK743 ♦10843 ♣6",
+    "all_hands_south": "♠K743 ♥10982 ♦J ♣8743",
+    "all_hands_east": "♠2 ♥J5 ♦AKQ9752 ♣Q102",
+    "all_hands_west": "♠A10985 ♥Q6 ♦6 ♣AKJ95",
+    "visible_in_problem": [
+      "west",
+      "east"
+    ],
+    "difficulty": "♥",
+    "main_technique": "Combining all chances",
+    "key_insight": "Try to combine all chances.",
+    "solution_line": "At first it may seems that you have to guess which of the minor suits is distributed 4-1. A precise analysis allows you to combine all the chances. It turns out that it is enough to assume that four clubs are not with North to drive the contract home. We play the ace of diamonds and ruff a diamond next we cash the ace of clubs and a club to the ten. Both minors can break 4-1 as long as four clubs are with South. By playing diamonds we shall pick up all the trumps. When South ruffs, you overruff in the West hand and cross to dummy, drawing the last trump.",
+    "result_comparison": "Closed room – Contract 3♠, +130 for EW. You win: 5♣ +600 = +10 IMP. You go down: -100 = -6 IMP.",
+    "additional_notes": ""
+  }
+]

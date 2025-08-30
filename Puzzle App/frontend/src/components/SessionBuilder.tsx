@@ -4,6 +4,10 @@ import type { Puzzle, DifficultySymbol, LoadingState } from '../types/Puzzle';
 import { DEFAULT_SESSION_CONFIG } from '../types/Session';
 import { DIFFICULTY_LEVELS } from '../types/Puzzle';
 import { useQuiz } from '../hooks/useQuiz';
+import { useAuth } from '../contexts/AuthContext';
+import { AuthModal } from './AuthModal';
+import { ProfileView } from './ProfileView';
+import { StatsModal } from './StatsModal';
 
 export const SessionBuilder: React.FC = () => {
   const quiz = useQuiz();
@@ -15,6 +19,10 @@ export const SessionBuilder: React.FC = () => {
   const [loadingState, setLoadingState] = useState<LoadingState>({ isLoading: false, error: null });
   const [difficultyStats, setDifficultyStats] = useState<Record<DifficultySymbol, number>>({} as Record<DifficultySymbol, number>);
   const [expandedSection, setExpandedSection] = useState<string>('core');
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [showProfileView, setShowProfileView] = useState(false);
+  const [showStatsModal, setShowStatsModal] = useState(false);
+  const { user, isOfflineMode } = useAuth();
 
   // Load difficulty statistics on component mount
   useEffect(() => {
@@ -79,22 +87,24 @@ export const SessionBuilder: React.FC = () => {
     const isOpen = expandedSection === id;
     return (
       <div style={{
-        backgroundColor: 'white',
-        border: '1px solid #e5e7eb',
-        borderRadius: '8px',
+        backgroundColor: '#FFFFFF',
+        border: '1px solid #ECF0F1',
+        borderRadius: '12px',
         marginBottom: '12px',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        boxShadow: '0px 2px 8px rgba(44, 62, 80, 0.04)'
       }}>
         <div 
           style={{
-            padding: '12px',
-            fontWeight: '500',
+            padding: '16px',
+            fontWeight: '600',
             cursor: 'pointer',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
-            fontSize: '14px',
-            backgroundColor: '#f9fafb'
+            fontSize: '15px',
+            backgroundColor: '#F8F9FA',
+            color: '#2C3E50'
           }}
           onClick={() => setExpandedSection(isOpen ? '' : id)}
         >
@@ -161,13 +171,13 @@ export const SessionBuilder: React.FC = () => {
 
   const activeNavItemStyle: React.CSSProperties = {
     ...navItemStyle,
-    color: '#0d9488'
+    color: '#8B1538'
   };
 
   return (
     <div style={{
       minHeight: '100vh',
-      backgroundColor: '#f3f4f6',
+      backgroundColor: '#FAFBFC',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -186,11 +196,11 @@ export const SessionBuilder: React.FC = () => {
                 style={{
                   flex: 1,
                   textAlign: 'center',
-                  padding: '8px',
-                  fontSize: '14px',
-                  fontWeight: '500',
-                  color: activeTab === 'declarer' ? '#0d9488' : '#6b7280',
-                  borderBottom: activeTab === 'declarer' ? '2px solid #0d9488' : '2px solid transparent',
+                  padding: '12px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  color: activeTab === 'declarer' ? '#8B1538' : '#7F8C8D',
+                  borderBottom: activeTab === 'declarer' ? '2px solid #8B1538' : '2px solid transparent',
                   backgroundColor: 'transparent',
                   border: 'none',
                   cursor: 'pointer'
@@ -204,10 +214,10 @@ export const SessionBuilder: React.FC = () => {
                 style={{
                   flex: 1,
                   textAlign: 'center',
-                  padding: '8px',
-                  fontSize: '14px',
-                  fontWeight: '500',
-                  color: '#9ca3af',
+                  padding: '12px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  color: '#BDC3C7',
                   borderBottom: '2px solid transparent',
                   backgroundColor: 'transparent',
                   border: 'none',
@@ -221,7 +231,7 @@ export const SessionBuilder: React.FC = () => {
             {/* Accordion Sections */}
             <div>
               <AccordionSection title="Core Settings" id="core">
-                <label style={{ display: 'block', fontSize: '12px', color: '#6b7280', marginBottom: '8px' }}>
+                <label style={{ display: 'block', fontSize: '13px', fontWeight: '500', color: '#2C3E50', marginBottom: '8px' }}>
                   Number of Problems: {problemCount}
                 </label>
                 <input
@@ -247,11 +257,12 @@ export const SessionBuilder: React.FC = () => {
                   onChange={(e) => setDifficulty(e.target.value as DifficultySymbol | 'all')}
                   style={{
                     width: '100%',
-                    padding: '8px',
+                    padding: '16px',
                     fontSize: '14px',
-                    backgroundColor: '#f9fafb',
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '6px'
+                    backgroundColor: '#FFFFFF',
+                    border: '1.5px solid #D5DBDB',
+                    borderRadius: '12px',
+                    height: '56px'
                   }}
                 >
                   <option value="all">♣ ♦ ♥ ♠ All Difficulties</option>
@@ -267,11 +278,12 @@ export const SessionBuilder: React.FC = () => {
               <AccordionSection title="Techniques" id="techniques">
                 <select style={{
                   width: '100%',
-                  padding: '8px',
+                  padding: '16px',
                   fontSize: '14px',
-                  backgroundColor: '#f9fafb',
-                  border: '1px solid #e5e7eb',
-                  borderRadius: '6px'
+                  backgroundColor: '#FFFFFF',
+                  border: '1.5px solid #D5DBDB',
+                  borderRadius: '12px',
+                  height: '56px'
                 }}>
                   <option>All Techniques</option>
                   <option>Finesse</option>
@@ -283,11 +295,12 @@ export const SessionBuilder: React.FC = () => {
               <AccordionSection title="Sources" id="sources">
                 <select style={{
                   width: '100%',
-                  padding: '8px',
+                  padding: '16px',
                   fontSize: '14px',
-                  backgroundColor: '#f9fafb',
-                  border: '1px solid #e5e7eb',
-                  borderRadius: '6px'
+                  backgroundColor: '#FFFFFF',
+                  border: '1.5px solid #D5DBDB',
+                  borderRadius: '12px',
+                  height: '56px'
                 }}>
                   <option>All Sources</option>
                   <option>Dynamic Declarer Play</option>
@@ -297,7 +310,7 @@ export const SessionBuilder: React.FC = () => {
 
             {/* Practice Mode Toggle */}
             <div style={{
-              backgroundColor: '#f3f4f6',
+              backgroundColor: '#F8F9FA',
               borderRadius: '8px',
               padding: '4px',
               display: 'flex',
@@ -308,15 +321,16 @@ export const SessionBuilder: React.FC = () => {
                 onClick={() => setMode('play')}
                 style={{
                   flex: 1,
-                  padding: '8px 12px',
+                  padding: '12px',
                   fontSize: '14px',
                   fontWeight: '500',
-                  borderRadius: '6px',
+                  borderRadius: '8px',
                   border: 'none',
-                  backgroundColor: mode === 'play' ? 'white' : 'transparent',
-                  color: mode === 'play' ? '#0d9488' : '#6b7280',
+                  backgroundColor: mode === 'play' ? 'white' : '#F4E8ED',
+                  color: mode === 'play' ? '#8B1538' : '#6b7280',
                   boxShadow: mode === 'play' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  height: '44px'
                 }}
               >
                 Play Here
@@ -325,15 +339,16 @@ export const SessionBuilder: React.FC = () => {
                 onClick={() => setMode('export')}
                 style={{
                   flex: 1,
-                  padding: '8px 12px',
+                  padding: '12px',
                   fontSize: '14px',
                   fontWeight: '500',
-                  borderRadius: '6px',
+                  borderRadius: '8px',
                   border: 'none',
-                  backgroundColor: mode === 'export' ? 'white' : 'transparent',
-                  color: mode === 'export' ? '#059669' : '#6b7280',
+                  backgroundColor: mode === 'export' ? 'white' : '#F4E8ED',
+                  color: mode === 'export' ? '#6D1028' : '#6b7280',
                   boxShadow: mode === 'export' ? '0 1px 3px rgba(0,0,0,0.1)' : 'none',
-                  cursor: 'pointer'
+                  cursor: 'pointer',
+                  height: '44px'
                 }}
               >
                 Export Only
@@ -346,25 +361,28 @@ export const SessionBuilder: React.FC = () => {
               disabled={loadingState.isLoading}
               style={{
                 width: '100%',
-                padding: '12px 16px',
+                padding: '16px',
                 marginTop: '8px',
                 color: 'white',
                 fontWeight: '600',
-                borderRadius: '8px',
+                borderRadius: '12px',
                 border: 'none',
-                backgroundColor: mode === 'play' ? '#0d9488' : '#059669',
+                backgroundColor: mode === 'play' ? '#8B1538' : '#6D1028',
                 cursor: loadingState.isLoading ? 'not-allowed' : 'pointer',
-                opacity: loadingState.isLoading ? 0.5 : 1
+                opacity: loadingState.isLoading ? 0.5 : 1,
+                boxShadow: '0px 2px 8px rgba(139, 21, 56, 0.15)',
+                height: '50px'
               }}
             >
-              🚀 {loadingState.isLoading ? 'Loading...' : getActionButtonText()}
+              {loadingState.isLoading ? 'Loading...' : getActionButtonText()}
             </button>
             
             <p style={{ 
-              fontSize: '12px', 
-              color: '#6b7280', 
+              fontSize: '13px', 
+              color: '#7F8C8D', 
               textAlign: 'center', 
-              marginTop: '8px' 
+              marginTop: '8px',
+              lineHeight: '1.4' 
             }}>
               {getActionDescription()}
             </p>
@@ -412,20 +430,20 @@ export const SessionBuilder: React.FC = () => {
               
               {!loadingState.isLoading && !loadingState.error && selectedPuzzles.length > 0 && (
                 <div style={{
-                  backgroundColor: '#f0fdfa',
-                  border: '1px solid #5eead4',
+                  backgroundColor: '#FCF7F9',
+                  border: '1px solid #F4E8ED',
                   borderRadius: '8px',
                   padding: '16px'
                 }}>
                   <div style={{ 
-                    fontSize: '14px', 
-                    fontWeight: '500', 
-                    color: '#065f46',
+                    fontSize: '15px', 
+                    fontWeight: '600', 
+                    color: '#6D1028',
                     marginBottom: '4px'
                   }}>
                     ✓ {selectedPuzzles.length} puzzles ready
                   </div>
-                  <div style={{ fontSize: '12px', color: '#047857' }}>
+                  <div style={{ fontSize: '12px', color: '#8B1538' }}>
                     {selectedPuzzles[0]?.book_title} - {selectedPuzzles[0]?.difficulty} level
                   </div>
                 </div>
@@ -439,8 +457,13 @@ export const SessionBuilder: React.FC = () => {
                   textAlign: 'center',
                   color: '#6b7280'
                 }}>
-                  <div style={{ fontSize: '32px', marginBottom: '8px' }}>🃏</div>
-                  <div style={{ fontSize: '14px' }}>Configure settings and generate session</div>
+                  <div style={{ fontSize: '32px', marginBottom: '12px' }}>🎯</div>
+                  <div style={{ fontSize: '14px', fontWeight: '500', marginBottom: '6px' }}>Ready to Practice?</div>
+                  <div style={{ fontSize: '12px', lineHeight: '1.4' }}>
+                    Choose your difficulty and problem count above, then tap
+                    <span style={{ fontWeight: '600', color: '#8B1538' }}> Generate Session </span>
+                    to start solving bridge puzzles!
+                  </div>
                 </div>
               )}
             </div>
@@ -452,7 +475,10 @@ export const SessionBuilder: React.FC = () => {
               <div style={{ fontSize: '18px', marginBottom: '2px' }}>📚</div>
               <span>Practice</span>
             </div>
-            <div style={navItemStyle}>
+            <div 
+              style={{...navItemStyle, cursor: 'pointer'}}
+              onClick={() => setShowStatsModal(true)}
+            >
               <div style={{ fontSize: '18px', marginBottom: '2px' }}>📊</div>
               <span>Stats</span>
             </div>
@@ -460,13 +486,34 @@ export const SessionBuilder: React.FC = () => {
               <div style={{ fontSize: '18px', marginBottom: '2px' }}>🕒</div>
               <span>History</span>
             </div>
-            <div style={navItemStyle}>
+            <div 
+              style={{...(user ? activeNavItemStyle : navItemStyle), cursor: 'pointer'}}
+              onClick={() => user ? setShowProfileView(true) : setShowAuthModal(true)}
+            >
               <div style={{ fontSize: '18px', marginBottom: '2px' }}>👤</div>
               <span>Profile</span>
             </div>
           </div>
         </div>
       </div>
+      
+      {/* Auth Modal */}
+      <AuthModal 
+        isOpen={showAuthModal} 
+        onClose={() => setShowAuthModal(false)} 
+      />
+      
+      {/* Profile View */}
+      <ProfileView 
+        isOpen={showProfileView} 
+        onClose={() => setShowProfileView(false)} 
+      />
+      
+      {/* Stats Modal */}
+      <StatsModal 
+        isOpen={showStatsModal} 
+        onClose={() => setShowStatsModal(false)} 
+      />
     </div>
   );
 };
