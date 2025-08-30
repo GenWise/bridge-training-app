@@ -123,7 +123,7 @@ ship message:
 # Deploy to Vercel
 deploy:
     @echo "🌐 Deploying to Vercel..."
-    cd {{frontend_dir}} && vercel --prod
+    cd {{frontend_dir}} && vercel --prod --yes
 
 # Build and deploy
 build-deploy: build deploy
