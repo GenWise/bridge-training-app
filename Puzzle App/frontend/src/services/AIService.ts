@@ -73,7 +73,15 @@ class AIService {
     userReasoning: string,
     puzzle: Puzzle
   ): Promise<AIScoreResult> {
-    console.log('🧠 Attempting real Claude API scoring...');
+    // Try Groq first (free and faster)
+    try {
+      const { groqService } = await import('./GroqService');
+      return await groqService.scoreReasoningAgainstSolution(userReasoning, puzzle);
+    } catch (groqError) {
+      console.log('Groq API unavailable, trying Claude API...', groqError);
+    }
+    
+    console.log('🧠 Attempting Claude API scoring...');
     
     const prompt = `
 You are a STRICT bridge instructor grading a student's analysis against the EXACT expert solution.

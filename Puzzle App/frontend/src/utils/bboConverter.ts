@@ -45,7 +45,10 @@ export function convertHandToBBO(handString: string): string {
 /**
  * Parse which hands should be visible in the problem
  */
-export function parseVisibleHands(visibleString: string): string[] {
+export function parseVisibleHands(visibleString: string | null | undefined): string[] {
+  if (!visibleString || typeof visibleString !== 'string') {
+    return ['west', 'east']; // Default fallback
+  }
   return visibleString.toLowerCase().split(',').map(s => s.trim());
 }
 
@@ -62,7 +65,7 @@ export function createBBOViewerURL(puzzle: Puzzle, showAllHands = false): string
   const eastHand = convertHandToBBO(puzzle.all_hands_east);
   const westHand = convertHandToBBO(puzzle.all_hands_west);
   
-  // Determine which hands to show
+  // Determine which hands to show based on showAllHands parameter
   const visibleHands = showAllHands ? 
     ['north', 'south', 'east', 'west'] : 
     parseVisibleHands(puzzle.visible_in_problem || 'west,east');
@@ -113,6 +116,12 @@ export function createBBOViewerURL(puzzle: Puzzle, showAllHands = false): string
   if (puzzle.puzzle_id) {
     params.set('b', puzzle.puzzle_id);
   }
+  
+  // Add sizing and display parameters to minimize white space
+  params.set('layout', 'h'); // horizontal layout
+  params.set('cardsize', 'm'); // medium card size
+  params.set('showauction', '0'); // hide auction to save space
+  params.set('showplay', '0'); // hide play to save space
   
   return `${baseURL}?${params.toString()}`;
 }

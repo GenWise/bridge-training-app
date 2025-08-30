@@ -1,9 +1,36 @@
 import type { Puzzle, DifficultySymbol, PuzzleFilter } from '../types/Puzzle';
 import { puzzleDataService } from './PuzzleDataService';
+import { supabase, isSupabaseConfigured } from '../lib/supabase';
 
 class PuzzleService {
   async getAllPuzzles(): Promise<Puzzle[]> {
-    return puzzleDataService.loadAllPuzzles();
+    if (isSupabaseConfigured()) {
+      return this.loadPuzzlesFromSupabase();
+    } else {
+      console.log('📂 Loading puzzles from JSON files (offline mode)');
+      return puzzleDataService.loadAllPuzzles();
+    }
+  }
+
+  private async loadPuzzlesFromSupabase(): Promise<Puzzle[]> {
+    try {
+      const { data, error } = await supabase
+        .from('puzzles')
+        .select('*')
+        .order('puzzle_id');
+
+      if (error) {
+        console.error('Error loading puzzles from Supabase:', error);
+        throw new Error(`Failed to load puzzles: ${error.message}`);
+      }
+
+      console.log(`🗄️ Successfully loaded ${data?.length || 0} puzzles from Supabase`);
+      return data || [];
+    } catch (error) {
+      console.error('Failed to load puzzles from Supabase:', error);
+      console.log('📂 Falling back to JSON files');
+      return puzzleDataService.loadAllPuzzles();
+    }
   }
 
   async filterPuzzles(filter: PuzzleFilter): Promise<Puzzle[]> {
