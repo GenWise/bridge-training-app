@@ -476,8 +476,8 @@ export const SessionBuilder: React.FC = () => {
               <span>Practice</span>
             </div>
             <div 
-              style={{...navItemStyle, cursor: 'pointer'}}
-              onClick={() => setShowStatsModal(true)}
+              style={{...(user ? activeNavItemStyle : navItemStyle), cursor: 'pointer'}}
+              onClick={() => user ? setShowStatsModal(true) : setShowAuthModal(true)}
             >
               <div style={{ fontSize: '18px', marginBottom: '2px' }}>📊</div>
               <span>Stats</span>
